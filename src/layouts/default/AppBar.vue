@@ -10,7 +10,7 @@
       
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-      <v-toolbar-title>Skemer</v-toolbar-title>
+      <v-toolbar-title>Skemerazazaza</v-toolbar-title>
 
       <v-btn icon>
         <v-icon>mdi-magnify</v-icon>
