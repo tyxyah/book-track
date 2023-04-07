@@ -1,44 +1,38 @@
 <template>
-  <v-card flat>
-    <v-toolbar
-      color="primary"
-      dark
-      extended
-      flat
+  <v-row>
+    <v-col
+      v-for="(bar, i) in bars"
+      :key="i"
+      cols="12"
+      sm="12"
+      md="6"
+      class="my-4"
     >
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
-    </v-toolbar>
-
-    <v-card
-      class="mx-auto"
-      max-width="700"
-      style="margin-top: -64px;"
-    >
-      <v-toolbar flat>
-        <v-toolbar-title class="text-grey">
-          Title
-        </v-toolbar-title>
-
-        <v-spacer></v-spacer>
-
-        <v-btn icon>
-          <v-icon>mdi-magnify</v-icon>
-        </v-btn>
-
-        <v-btn icon>
-          <v-icon>mdi-apps</v-icon>
-        </v-btn>
-
-        <v-btn icon>
-          <v-icon>mdi-dots-vertical</v-icon>
-        </v-btn>
-      </v-toolbar>
-
-      <v-divider></v-divider>
-
-      <v-card-text style="height: 200px;"></v-card-text>
-    </v-card>
-  </v-card>
+      <v-card
+        color="grey-lighten-4"
+        flat
+        height="200px"
+      >
+        <v-toolbar
+          :color="bar.class"
+          :dark="bar.dark"
+        >
+          <v-app-bar-nav-icon></v-app-bar-nav-icon>
+          <v-toolbar-title>Title</v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-btn icon>
+            <v-icon>mdi-magnify</v-icon>
+          </v-btn>
+          <v-btn icon>
+            <v-icon>mdi-heart</v-icon>
+          </v-btn>
+          <v-btn icon>
+            <v-icon>mdi-dots-vertical</v-icon>
+          </v-btn>
+        </v-toolbar>
+      </v-card>
+    </v-col>
+  </v-row>
 </template>
 
 <script setup>
