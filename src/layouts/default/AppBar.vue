@@ -1,31 +1,21 @@
 <template>
-  
-  <v-card
-    color="grey-lighten-4"
-    flat
-    height="200px"
-    rounded="0"
-  >
-    <v-toolbar density="compact">
-      
+  <div>
+    <v-toolbar
+      dark
+      prominent
+      image="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
+    >
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-      <v-toolbar-title>BookTrack</v-toolbar-title>
+      <v-toolbar-title>Vuetify</v-toolbar-title>
+
+      <v-spacer></v-spacer>
 
       <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-      <v-row class="ma-2" justify="right">
-      <v-checkbox label="Availability"></v-checkbox>
-      </v-row>
-
-      <v-btn>
-        Search
+        <v-icon>mdi-export</v-icon>
       </v-btn>
     </v-toolbar>
-  </v-card>
-
+  </div>
 </template>
 
 <script setup>
