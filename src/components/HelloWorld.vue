@@ -7,7 +7,7 @@
         src="@/assets/logo.svg"
       />
 
-      <div class="text-body-2 font-weight-light mb-n1">Welcome Aisyah</div>
+      <div class="text-body-2 font-weight-light mb-n1">Kenapa Aisyah</div>
 
       <h1 class="text-h2 font-weight-bold">BookTrack</h1>
 
