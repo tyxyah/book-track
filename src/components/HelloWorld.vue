@@ -9,7 +9,7 @@
 
       <div class="text-body-2 font-weight-light mb-n1">Kenapa Aisyah Razali</div>
 
-      <h1 class="text-h2 font-weight-bold">BookTrack</h1>
+      <h1 class="text-h2 font-weight-bold">BookTrack aisyah</h1>
 
       <div class="py-14" />
 
