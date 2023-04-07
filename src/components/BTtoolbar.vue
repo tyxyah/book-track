@@ -8,7 +8,7 @@
       <v-toolbar density="compact">
         <v-app-bar-nav-icon></v-app-bar-nav-icon>
   
-        <v-toolbar-title>BookTrack</v-toolbar-title>
+        <v-toolbar-title>BookTrack ynj</v-toolbar-title>
   
         <v-spacer></v-spacer>
   
