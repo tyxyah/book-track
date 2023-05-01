@@ -1,79 +1,92 @@
 <template>
-  <v-container class="fill-height">
-    <v-responsive class="d-flex align-center text-center fill-height">
-      <v-img
-        contain
-        height="300"
-        src="@/assets/logo.svg"
-      />
+  <div >
+    <v-sheet class="bg-indigo-lighten-5 pa-14" >
+      <v-row justify="space-around">
+    <v-img
+      class="mx-auto"
+      max-width="600"
+      src="https://cdn.pixabay.com/photo/2020/07/12/07/47/bee-5396362_1280.jpg"
+    ></v-img>
 
-      <div class="text-body-2 font-weight-light mb-n1">Kenapa Aisyah Razali</div>
+    <v-card
+      class="mx-auto pa-12 pb-8"
+      elevation="8"
+      max-width="448"
+      rounded="lg"
+    >
 
-      <h1 class="text-h2 font-weight-bold">BookTrack aisyah</h1>
+      <div class="text-subtitle-1 text-medium-emphasis"><strong>Book Club Member ID</strong></div>
 
-      <div class="py-14" />
+      <v-text-field
+        density="compact"
+        placeholder="Member ID"
+        prepend-inner-icon="mdi-account-outline"
+        variant="outlined"
+      ></v-text-field>
 
-      <v-row class="d-flex align-center justify-center">
-        <v-col cols="auto">
-          <v-btn
-            href="https://next.vuetifyjs.com/components/all/"
-            min-width="164"
-            rel="noopener noreferrer"
-            target="_blank"
-            variant="text"
-          >
-            <v-icon
-              icon="mdi-view-dashboard"
-              size="large"
-              start
-            />
+      <div class="text-subtitle-1 text-medium-emphasis d-flex align-center justify-space-between ">
+       <strong>Password</strong>
 
-            Components
-          </v-btn>
-        </v-col>
+        <a
+          class="text-caption text-decoration-none text-blue"
+          href="#"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Forgot password?</a>
+      </div>
 
-        <v-col cols="auto">
-          <v-btn
-            color="primary"
-            href="https://next.vuetifyjs.com/introduction/why-vuetify/#feature-guides"
-            min-width="228"
-            rel="noopener noreferrer"
-            size="x-large"
-            target="_blank"
-            variant="flat"
-          >
-            <v-icon
-              icon="mdi-speedometer"
-              size="large"
-              start
-            />
+      <v-text-field
+        :append-inner-icon="visible ? 'mdi-eye-off' : 'mdi-eye'"
+        :type="visible ? 'text' : 'password'"
+        density="compact"
+        placeholder="Enter your password"
+        prepend-inner-icon="mdi-lock-outline"
+        variant="outlined"
+        @click:append-inner="visible = !visible"
+      ></v-text-field>
 
-            Get Started
-          </v-btn>
-        </v-col>
+      <v-card
+        class="mb-12"
+        color="surface-variant"
+        variant="tonal"
+      >
+        <v-card-text class="text-medium-emphasis text-caption">
+          Warning: After 3 consecutive failed login attempts, you account will be temporarily locked for three hours. If you must login now, you can also click "Forgot login password?" below to reset the login password.
+        </v-card-text>
+      </v-card>
 
-        <v-col cols="auto">
-          <v-btn
-            href="https://community.vuetifyjs.com/"
-            min-width="164"
-            rel="noopener noreferrer"
-            target="_blank"
-            variant="text"
-          >
-            <v-icon
-              icon="mdi-account-group"
-              size="large"
-              start
-            />
+      <v-btn
+        block
+        class="mb-5"
+        color="purple"
+        size="large"
+        variant="tonal"
+      >
+        Log In
+      </v-btn>
 
-            Community
-          </v-btn>
-        </v-col>
-      </v-row>
-    </v-responsive>
-  </v-container>
+      <v-card-text class="text-center">
+        <a
+          class="text-blue text-decoration-none"
+          href="#"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Sign up now <v-icon icon="mdi-chevron-right"></v-icon>
+        </a>
+      </v-card-text>
+    
+    </v-card>
+    </v-row>
+  </v-sheet>
+  </div>
 </template>
 
-<script setup>
-  //
+<script>
+  export default {
+    data: () => ({
+      visible: false,
+    }),
+  }
 </script>
