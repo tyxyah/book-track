@@ -1,8 +1,9 @@
 <template>
-  <HelloWorld />
+  <SearchBook/>
+  <AkuTry/>
 </template>
 
 <script setup>
-  import BTtoolbar from '@/components/BTtoolbar.vue';
-import HelloWorld from '@/components/HelloWorld.vue'
+import SearchBook from '@/components/SearchBook.vue'
+import AkuTry from '@/components/AkuTry.vue'
 </script>
