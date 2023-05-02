@@ -1,79 +1,88 @@
 <template>
-  <v-container class="fill-height">
-    <v-responsive class="d-flex align-center text-center fill-height">
-      <v-img
-        contain
-        height="300"
-        src="@/assets/logo.svg"
-      />
+  <v-container>
+    <v-row justify="center" align="center">
+      <v-col>
+        <v-img contain height="200" src="https://sweetcherrypublishing.com/wp-content/uploads/2019/06/Sherlock-series-1-slipcase.jpg">
+        </v-img> 
+        <v-container align="center">
+          Book Name
+        </v-container> 
+        
+      </v-col>
 
-      <div class="text-body-2 font-weight-light mb-n1">Welcome Aisyah</div>
+      <v-col>
+        <v-img contain height="200" src="https://m.media-amazon.com/images/I/51x3kjQd6hL.jpg">
+        </v-img>
+        <v-container align="center">
+          Book Name
+        </v-container> 
+      </v-col>
 
-      <h1 class="text-h2 font-weight-bold">BookTrack</h1>
+      <v-col>
+        <v-img contain height="200" src="https://res.cloudinary.com/bloomsbury-atlas/image/upload/w_568,c_scale/jackets/9781847496164.jpg">
+        </v-img>
+        <v-container align="center">
+          Book Name
+        </v-container> 
+      </v-col>
 
-      <div class="py-14" />
+      <v-col>
+        <v-img contain height="200" src="https://cdn.shopify.com/s/files/1/0601/0883/2974/products/sherlock-holmes-the-adventures-of-sherlock-holmes-9780755334353-3828246741036.jpg?v=1648785258">
+        </v-img>
+        <v-container align="center">
+          Book Name
+        </v-container> 
+      </v-col>
 
-      <v-row class="d-flex align-center justify-center">
-        <v-col cols="auto">
-          <v-btn
-            href="https://next.vuetifyjs.com/components/all/"
-            min-width="164"
-            rel="noopener noreferrer"
-            target="_blank"
-            variant="text"
-          >
-            <v-icon
-              icon="mdi-view-dashboard"
-              size="large"
-              start
-            />
+      <v-col>
+        <v-img contain height="200" src="https://kbimages1-a.akamaihd.net/9249191b-78b7-497b-aeb7-ea2201969042/1200/1200/False/the-memoirs-of-sherlock-holmes-192.jpg">
+        </v-img>
+        <v-container align="center">
+          Book Name
+        </v-container> 
+      </v-col>
+    </v-row>
 
-            Components
-          </v-btn>
-        </v-col>
+    <v-row justify="center" align="center">
+      <v-col>
+        <v-img contain height="200" src="https://m.media-amazon.com/images/I/51x3kjQd6hL.jpg">
+        </v-img>
+        <v-container align="center">
+          Book Name
+        </v-container> 
+      </v-col>
 
-        <v-col cols="auto">
-          <v-btn
-            color="primary"
-            href="https://next.vuetifyjs.com/introduction/why-vuetify/#feature-guides"
-            min-width="228"
-            rel="noopener noreferrer"
-            size="x-large"
-            target="_blank"
-            variant="flat"
-          >
-            <v-icon
-              icon="mdi-speedometer"
-              size="large"
-              start
-            />
+      <v-col>
+        <v-img contain height="200" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe8bcWrZiSfVi3rAwKPOOHT-2ghCQxXb2-86ApvLz41qeQwRHaxzyQhrWBVfu5S3ymqvs&usqp=CAU">
+        </v-img>
+        <v-container align="center">
+          Book Name
+        </v-container> 
+      </v-col>
 
-            Get Started
-          </v-btn>
-        </v-col>
+      <v-col>
+        <v-img contain height="200" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtaCvo5g4JhUQENH0cYq0AhlH2uwCueTX8lU-fv9fXGra2t806ZEiIwpY4aneao0qped4&usqp=CAU">
+        </v-img>
+        <v-container align="center">
+          Book Name
+        </v-container> 
+      </v-col>
 
-        <v-col cols="auto">
-          <v-btn
-            href="https://community.vuetifyjs.com/"
-            min-width="164"
-            rel="noopener noreferrer"
-            target="_blank"
-            variant="text"
-          >
-            <v-icon
-              icon="mdi-account-group"
-              size="large"
-              start
-            />
+      <v-col>
+        <v-img contain height="200" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOFKXAUAtUJ2K8wgLasYAunpOSrsAfWQp0BZyhk2BFvC290A9tHJ1fxSuqR33IpSNVePQ&usqp=CAU">
+        </v-img>
+        <v-container align="center">
+          Book Name
+        </v-container> 
+      </v-col>
 
-            Community
-          </v-btn>
-        </v-col>
-      </v-row>
-    </v-responsive>
+      <v-col>
+        <v-img contain height="200" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpb_uSyLBwkzXONdx8OaqDxaJdPQOib0mhcSMKR2-TUi3vn3NdEcAsyOmkYyrtpmcvghQ&usqp=CAU">
+        </v-img>
+        <v-container align="center">
+          Book Name
+        </v-container> 
+      </v-col>
+    </v-row>
   </v-container>
 </template>
-
-<script setup>
-  //
-</script>
