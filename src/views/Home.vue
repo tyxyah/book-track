@@ -1,9 +1,12 @@
 <template>
-  <SearchBook/>
-  <AkuTry/>
+   <!-- <AbuZeo/>-->
+  
+   <AddBook/>
+  
+
 </template>
 
 <script setup>
-import SearchBook from '@/components/SearchBook.vue'
-import AkuTry from '@/components/AkuTry.vue'
+
+import AddBook from '@/components/AddBook.vue'
 </script>
