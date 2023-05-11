@@ -1,12 +1,12 @@
 <template>
    <!-- <AbuZeo/>-->
   
-   <AddBook/>
+   <EditBook/>
   
 
 </template>
 
 <script setup>
 
-import AddBook from '@/components/AddBook.vue'
+import EditBook from '@/components/EditBook.vue'
 </script>
