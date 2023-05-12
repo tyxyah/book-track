@@ -3,5 +3,9 @@
 
 
 zaimi wuz here ~
+<<<<<<< HEAD
 irfan oso here
 zai osooo heree
+=======
+ndsjnvjdfn ~ 
+>>>>>>> 3315e0d (zaimi wuz here again ~)
