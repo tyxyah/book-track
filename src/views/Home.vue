@@ -1,12 +1,13 @@
 <template>
    <!-- <AbuZeo/>-->
-  
-   <EditBook/>
+  <BTtoolbar/>
+
+   <MainPage/>
   
 
 </template>
 
 <script setup>
-
-import EditBook from '@/components/EditBook.vue'
+import BTtoolbar from '@/components/BTtoolbar.vue'
+import MainPage from '@/components/MainPage.vue'
 </script>

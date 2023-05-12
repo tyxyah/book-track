@@ -203,17 +203,41 @@
                   <v-col cols="1">
                       <v-sheet class="d-flex justify-end" color="purple-lighten-5">
                           <v-sheet class="ma-2 pa-2 d-flex" color="purple-lighten-5"> <v-btn
-                              color="green">Confirm</v-btn></v-sheet>
+                              color="green" @click="dialog2 = true">Confirm</v-btn></v-sheet>
                       <v-sheet class="ma-2 pa-2 d-flex" color="purple-lighten-5"> <v-btn
                               color="red">Cancel</v-btn></v-sheet>
                       </v-sheet>
                   </v-col>
               </v-sheet>
-
+              <v-dialog v-model="dialog2" width="400">
+                      <v-card>
+                        <v-card-title>
+                          Are you sure want to add this book?
+                        </v-card-title>
+                       
+                        <v-card-actions>
+                          <v-spacer></v-spacer>
+                         
+                          <v-btn color="blue-darken-1" variant="text" @click="dialog2 = false">
+                            Yes
+                          </v-btn>
+                          <v-btn color="primary" variant="text" @click="dialog2 = false">
+                            No
+                          </v-btn>
+                       
+                        </v-card-actions>
+                      </v-card>
+                    </v-dialog>
 
           </div>
          
-
+         <!-- <v-file-input
+    :rules="rules"
+    accept="image/png, image/jpeg, image/bmp"
+    placeholder="Pick an avatar"
+    prepend-icon="mdi-camera"
+    label="Avatar"
+  ></v-file-input>-->
       </v-card>
 
   </v-row>
@@ -226,6 +250,15 @@ export default {
       value: 'Available',
       genre: ['Thriller', 'Comedian', 'Horror', 'Romantic'],
       value2: 'Thriller',
+      visible: false,
+      dialog: false,
+      dialog2: false,
+      rules: [
+        value => {
+          return !value || !value.length || value[0].size < 2000000 || 'Avatar size should be less than 2 MB!'
+        },
+      ],
   }),
 }
+
 </script>
