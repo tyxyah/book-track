@@ -1,8 +1,13 @@
 <template>
-  <HelloWorld />
+ 
+  <!----><AppBar/>
+
+   <MainPage/>
+  
+
 </template>
 
 <script setup>
-  import BTtoolbar from '@/components/BTtoolbar.vue';
-import HelloWorld from '@/components/HelloWorld.vue'
+import AppBar from '@/components/AppBar.vue'
+import MainPage from '@/components/MainPage.vue'
 </script>
