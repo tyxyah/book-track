@@ -5,7 +5,7 @@
           <v-img contain height="200" src="https://sweetcherrypublishing.com/wp-content/uploads/2019/06/Sherlock-series-1-slipcase.jpg">
           </v-img> 
           <v-container align="center">
-            Book Name
+            <router-link style="color: black; text-decoration: none;"  to="/book-detail" replace> holmes </router-link>
           </v-container> 
         </v-col>
   

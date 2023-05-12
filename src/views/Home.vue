@@ -1,6 +1,6 @@
 <template>
-   <!-- <AbuZeo/>-->
-  <BTtoolbar/>
+ 
+  <!----><AppBar/>
 
    <MainPage/>
   
@@ -8,6 +8,6 @@
 </template>
 
 <script setup>
-import BTtoolbar from '@/components/BTtoolbar.vue'
+import AppBar from '@/components/AppBar.vue'
 import MainPage from '@/components/MainPage.vue'
 </script>
