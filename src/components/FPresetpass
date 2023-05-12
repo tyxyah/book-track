@@ -1,0 +1,24 @@
+<template>
+    <v-sheet width="300" class="mx-auto">
+      <v-form @submit.prevent>
+        <v-text-field
+          v-model="pass1"
+          :rules="rules"
+          label="New Password"
+        ></v-text-field>
+
+        <v-text-field
+          v-model="pass2"
+          :rules="rules"
+          label="Confirm Password"
+        ></v-text-field>
+
+        <v-btn type="submit" block class="mt-2">Confirm</v-btn>
+        <v-btn type="cancel" block class="mt-2">Cancel</v-btn>
+      </v-form>
+    </v-sheet>
+  </template>
+
+  <script>
+    //
+  </script>
