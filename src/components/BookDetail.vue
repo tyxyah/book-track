@@ -1,18 +1,25 @@
 <template>
-    <v-card height="90" color="primary">
+  <v-card height="90" color="primary">
     <div class="d-flex " color="primary">
 
       <v-col cols="1">
         
       </v-col>
       <v-col cols="2">
-        <v-sheet class="ma-2 pa-2 " color="primary" density="compact"> 
-          <v-btn  flat style="background-color: transparent;" > <router-link style="color: white; text-decoration: none;" to="/home-page" replace>
-            <v-card-title>BookTrack</v-card-title>  </router-link> </v-btn></v-sheet>
+        <v-sheet class="pa-2 " color="primary" density="compact"> 
+          <router-link style="color: white; text-decoration: none;" to="/home-page" replace><v-btn  flat style="background-color: transparent;" > 
+            <v-card-title style="color: white">BookTrack</v-card-title>   </v-btn></router-link></v-sheet>
       </v-col>
       <v-col cols="6">
-        <v-sheet class="ma-2 pa-2 " color="primary">
-          <v-text-field  density="compact" variant="solo" single-line hide-details append-inner-icon="mdi-magnify" ></v-text-field>
+        <v-sheet class="ma-1 pa-2 " color="primary">
+            <v-text-field   :loading="loading"
+        density="compact"
+        variant="solo"
+        label="Search Book"
+        append-inner-icon="mdi-magnify"
+        single-line
+        hide-details
+        @click:append-inner="onClick" ></v-text-field>
           
         </v-sheet>
       </v-col>
@@ -24,17 +31,18 @@
           <v-checkbox color="black" density="compact" label=": Availability" v-model="checkbox"> </v-checkbox>
         </v-sheet>
         <v-sheet class="ma-2 pa-2 " color="primary">
-          <v-btn><router-link style="color: black; text-decoration: none;" to="/search-book" replace> Search </router-link></v-btn>
+          <router-link style="color: black; text-decoration: none;" to="/search-book" replace><v-btn> Search </v-btn></router-link>
         </v-sheet>
-        <v-sheet class="ma-2 pa-2 " color="primary">
-          <v-btn icon
-              color="white" ><router-link style="color: black; text-decoration: none;" to="/log-in" replace><v-icon>mdi-logout</v-icon></router-link></v-btn>
+        <v-sheet class="ml-2 pa-2 " color="primary">
+          <router-link style="color: black; text-decoration: none;" to="/log-in" replace><v-btn icon
+              color="white" ><v-icon>mdi-logout</v-icon></v-btn></router-link>
         </v-sheet>
       </div>
       </v-col>
     </div>
   </v-card>
-  <v-container></v-container>
+  <v-container> </v-container>
+
     <div>
         <v-card class="mx-auto" width="800" color="#385F73" theme="dark">
             <template v-slot:title> The Sherlock Holmes </template>
@@ -70,8 +78,8 @@
                         </v-col>
                     </v-row>
 
-                    <v-btn color="black-lighten-2" @click="goToCincau"> 
-                        <router-link style="color: white; text-decoration: none;" to="/book-edit" replace> Edit </router-link> </v-btn>
+                    <router-link style="color: white; text-decoration: none;" to="/book-edit" replace> <v-btn color="black-lighten-2" @click="goToCincau"> 
+                        Edit </v-btn></router-link> 
                     
                     <!-- <router-link to="/button" replace> Cincau </router-link> -->
 
@@ -86,10 +94,10 @@
 
                             <v-card-actions>
                                 <v-spacer></v-spacer>
-                                <v-btn color="green-darken-1" variant="text" @click="dialog = true">
+                                <router-link style="color: green; text-decoration: none;" to="/home-page" replace><v-btn color="green-darken-1" variant="text" @click="dialog = true">
                                     
-                                    <router-link style="color: green; text-decoration: none;" to="/home-page" replace> Confirm </router-link>
-                                </v-btn>
+                                     Confirm 
+                                </v-btn></router-link>
                                 <v-btn color="green-darken-1" variant="text" @click="dialog = false">
                                     Cancel
                                 </v-btn>
@@ -186,6 +194,14 @@ export default {
         goToCincau() {
             console.log("this is cincau")
         },
-    }
+      onClick () {
+        this.loading = true
+
+        setTimeout(() => {
+          this.loading = false
+          this.loaded = true
+        }, 2000)
+      },
+    },
 };
 </script>
