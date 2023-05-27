@@ -10,9 +10,9 @@
                     <v-card-title>Edit a book</v-card-title>
                 </v-sheet>
                 <v-sheet class="ma-2 pa-2" color="purple-lighten-5">
-                    <v-btn icon height="30" width="30" variant="text">
-                        <router-link style="color: black; text-decoration: none;" to="/book-detail" replace><v-icon>mdi-close</v-icon></router-link>
-                    </v-btn>
+                    <router-link style="color: black; text-decoration: none;" to="/book-detail" replace><v-btn icon height="30" width="30" variant="text">
+                        <v-icon>mdi-close</v-icon>
+                    </v-btn></router-link>
                 </v-sheet>
             </div>
   
@@ -206,8 +206,8 @@
                         <v-sheet class="d-flex justify-end" color="purple-lighten-5">
                             <v-sheet class="ma-2 pa-2 d-flex" color="purple-lighten-5"> <v-btn
                                 color="green" @click="dialog2 = true">Confirm</v-btn></v-sheet>
-                     <!---->  <v-sheet class="ma-2 pa-2 d-flex" color="purple-lighten-5"> <v-btn
-                                color="red" @click="dialog2 = false">Cancel</v-btn></v-sheet>
+                     <!---->  <v-sheet class="ma-2 pa-2 d-flex" color="purple-lighten-5"> <router-link style="color: green; text-decoration: none;" to="/book-detail" replace><v-btn
+                                color="red" @click="dialog2 = false">Cancel</v-btn></router-link></v-sheet>
                         </v-sheet>
                     </v-col>
                 </v-sheet>
@@ -220,9 +220,9 @@
                         <v-card-actions>
                           <v-spacer></v-spacer>
                          
-                          <v-btn color="green" variant="text" @click="dialog2 = false">
-                            <router-link style="color: green; text-decoration: none;" to="/home-page" replace> Yes </router-link>
-                          </v-btn>
+                          <router-link style="color: green; text-decoration: none;" to="/home-page" replace><v-btn color="green" variant="text" @click="dialog2 = false">
+                             Yes 
+                          </v-btn></router-link>
                           <v-btn color="red" variant="text" @click="dialog2 = false">
                             No
                           </v-btn>
