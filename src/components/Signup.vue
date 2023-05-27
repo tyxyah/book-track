@@ -1,11 +1,12 @@
 <template>
 
-  <v-sheet width="800" class="mx-auto">
-    <v-sheet class="bg-indigo-lighten-5 pa-16" rounded>
-      <v-card class="mx-auto px-8 py-10" max-width="600">
-      <v-card-title>
-        Sign up for Book Track
+  
+    <v-sheet class="bg-indigo-lighten-5 pa-16 mx-auto "  width="auto" height="877">
+      <v-card class="mx-auto mt-10 px-11 pb-12 pt-7" max-width="500" rounded elevation="8">
+      <v-card-title class="mb-5">
+      Sign up for Book Track 
       </v-card-title>
+  
     <form @submit.prevent="submit">
       <v-text-field
         v-model="id.value.value"
@@ -64,14 +65,15 @@
       >
         submit
       </v-btn>
-  
-      <v-btn @click="handleReset"><router-link style=" color:black; text-decoration: none;" to="/log-in" replace>
+      
+      <router-link style=" color:black; text-decoration: none;" to="/log-in" replace>
+      <v-btn @click="handleReset">
         cancel
-      </router-link></v-btn>
+     </v-btn></router-link>
     </form>
     </v-card>
   </v-sheet>
-  </v-sheet>
+  
   </template>
   
   <script>
