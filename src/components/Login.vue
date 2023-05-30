@@ -19,11 +19,12 @@
               <strong>Book Club Member ID</strong>
             </div>
 
-            <v-text-field
+            <v-text-field 
               density="compact"
               placeholder="Member ID"
               prepend-inner-icon="mdi-account-outline"
               variant="outlined"
+              type="input"
             ></v-text-field>
 
             <div
@@ -38,6 +39,7 @@
                     size="small"
                     color="purple"
                     v-bind="props"
+                    type="input"
                   >
                     Forgot Password?
                   </v-btn>
@@ -48,7 +50,7 @@
                   </v-card-title>
                   <v-card-text>
                     <v-container>
-                      <v-text-field label="Email" required></v-text-field>
+                      <v-text-field label="Email" type="input" required></v-text-field>
                     </v-container>
                   </v-card-text>
                   <v-card-actions>
@@ -56,6 +58,7 @@
                     <v-btn
                       color="blue-darken-1"
                       variant="text"
+                      type="cancel"
                       @click="dialog = false"
                     >
                       Close
@@ -64,6 +67,7 @@
                       <v-btn
                         color="blue-darken-1"
                         variant="text"
+                        type="submit"
                         @click="dialog2 = true"
                       >
                         Submit
@@ -76,10 +80,12 @@
                           <v-container>
                             <v-text-field
                               label="New Password"
+                              type="input"
                               required
                             ></v-text-field>
                             <v-text-field
                               label="Confirm Password"
+                              type="input"
                               required
                             ></v-text-field>
                           </v-container>
@@ -89,6 +95,7 @@
                           <v-btn
                             color="primary"
                             variant="text"
+                            type="cancel"
                             @click="dialog2 = false"
                           >
                             Close
@@ -96,6 +103,7 @@
                           <v-btn
                             color="blue-darken-1"
                             variant="text"
+                            type="submit"
                             @click="dialog2 = false"
                           >
                             Submit
@@ -115,6 +123,7 @@
               placeholder="Enter your password"
               prepend-inner-icon="mdi-lock-outline"
               variant="outlined"
+              type="input"
               @click:append-inner="visible = !visible"
             ></v-text-field>
 
@@ -140,6 +149,7 @@
                 color="purple"
                 size="large"
                 variant="tonal"
+                type="input"
               >
                 LOG IN
               </v-btn></router-link
@@ -156,6 +166,7 @@
               variant="plain"
               size="small"
               color="blue"
+              type="input"
               v-bind="props"
             >
               
