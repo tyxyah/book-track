@@ -17,6 +17,7 @@
         variant="solo"
         label="Search Book"
         append-inner-icon="mdi-magnify"
+        type="input"
         single-line
         hide-details
         @click:append-inner="onClick" ></v-text-field>
@@ -31,7 +32,7 @@
           <v-checkbox color="black" density="compact" label=": Availability" v-model="checkbox"> </v-checkbox>
         </v-sheet>
         <v-sheet class="ma-2 pa-2 " color="primary">
-          <router-link style="color: black; text-decoration: none;" to="/search-book" replace><v-btn> Search </v-btn></router-link>
+          <router-link style="color: black; text-decoration: none;" to="/search-book" replace><v-btn type="input"> Search </v-btn></router-link>
         </v-sheet>
         <v-sheet class="ml-2 pa-2 " color="primary">
           <router-link style="color: black; text-decoration: none;" to="/log-in" replace><v-btn icon
