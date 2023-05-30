@@ -13,6 +13,7 @@
         :counter="10"
         :error-messages="id.errorMessage.value"
         label="Book Club Member ID"
+        type="input"
       ></v-text-field>
   
       <v-text-field
@@ -20,6 +21,7 @@
         :counter="7"
         :error-messages="phone.errorMessage.value"
         label="Phone Number"
+        type="input"
         
       ></v-text-field>
   
@@ -27,6 +29,7 @@
         v-model="email.value.value"
         :error-messages="email.errorMessage.value"
         label="E-mail Address"
+        type="input"
       ></v-text-field>
   
       <v-text-field
@@ -38,6 +41,7 @@
     label="Password"
     counter
           @click:append="show1 = !show1"
+          type="input"
   ></v-text-field>
   
   <v-text-field
@@ -49,6 +53,7 @@
     label="Confirmation Password"
     counter
           @click:append="show1 = !show1"
+          type="input"
   ></v-text-field>
   
       <v-checkbox
@@ -67,7 +72,7 @@
       </v-btn>
       
       <router-link style=" color:black; text-decoration: none;" to="/log-in" replace>
-      <v-btn @click="handleReset">
+      <v-btn type="cancel" @click="handleReset">
         cancel
      </v-btn></router-link>
     </form>
