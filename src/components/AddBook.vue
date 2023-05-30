@@ -10,7 +10,7 @@
                     <v-card-title>Adding a new book</v-card-title>
                 </v-sheet>
                 <v-sheet class="ma-2 pa-2" color="purple-lighten-5">
-                    <router-link style="color: black; text-decoration: none;" to="/home-page" replace> <v-btn icon="$close" height="30" width="30" variant="text"><v-icon>mdi-close</v-icon> </v-btn></router-link>
+                    <router-link style="color: black; text-decoration: none;" to="/home-page" replace> <v-btn icon="$close" height="30" width="30" variant="text" type="input"><v-icon>mdi-close</v-icon> </v-btn></router-link>
                 </v-sheet>
             </div>
   
@@ -27,7 +27,7 @@
                     </v-col>
                     <v-col cols="6">
                         <v-sheet class="align-self-center">
-                            <v-text-field density="compact" variant="solo" single-line hide-details></v-text-field>
+                            <v-text-field density="compact" variant="solo" single-line hide-details  type="input"></v-text-field>
                         </v-sheet>
                     </v-col>
                 </v-sheet>
@@ -45,7 +45,7 @@
                     </v-col>
                     <v-col cols="6">
                         <v-sheet class="align-self-center">
-                            <v-text-field density="compact" variant="solo" single-line hide-details></v-text-field>
+                            <v-text-field density="compact" variant="solo" single-line hide-details type="input"></v-text-field>
                         </v-sheet>
                     </v-col>
                 </v-sheet>
@@ -62,7 +62,7 @@
                     </v-col>
                     <v-col cols="6">
                         <v-sheet class="align-self-center">
-                            <v-text-field density="compact" variant="solo" single-line hide-details></v-text-field>
+                            <v-text-field density="compact" variant="solo" single-line hide-details type="date"></v-text-field>
                         </v-sheet>
                     </v-col>
                 </v-sheet>
@@ -79,7 +79,7 @@
                     </v-col>
                     <v-col cols="6">
                         <v-sheet class="align-self-center">
-                            <v-text-field variant="solo" density="compact" single-line hide-details></v-text-field>
+                            <v-text-field variant="solo" density="compact" single-line hide-details type="input"></v-text-field>
                         </v-sheet>
                     </v-col>
                 </v-sheet>
@@ -96,7 +96,7 @@
                     </v-col>
                     <v-col cols="6">
                         <v-sheet class="align-self-center">
-                            <v-text-field variant="solo" density="compact" single-line hide-details></v-text-field>
+                            <v-text-field variant="solo" density="compact" single-line hide-details type="input"></v-text-field>
                         </v-sheet>
                     </v-col>
                 </v-sheet>
@@ -114,7 +114,7 @@
                     <v-col cols="6">
                         <v-sheet class="align-self-center">
                             <v-combobox single-line hide-details variant="solo" v-model="value2" :items="genre"
-                                density="compact"></v-combobox>
+                                density="compact" type="input"></v-combobox>
                         </v-sheet>
                     </v-col>
                 </v-sheet>
@@ -132,7 +132,7 @@
                     <v-col cols="6">
                         <v-sheet class="align-self-center">
                             <v-combobox single-line hide-details variant="solo" v-model="value" :items="availability"
-                                density="compact"></v-combobox>
+                                density="compact" type="input"></v-combobox>
                         </v-sheet>
                     </v-col>
                 </v-sheet>
@@ -149,7 +149,7 @@
                     </v-col>
                     <v-col cols="6">
                         <v-sheet class="align-self-center">
-                            <v-text-field variant="solo" density="compact" single-line hide-details></v-text-field>
+                            <v-text-field variant="solo" density="compact" single-line hide-details type="input"></v-text-field>
                         </v-sheet>
                     </v-col>
                 </v-sheet>
@@ -174,10 +174,10 @@
   
                     <v-col cols="4">
                         <v-sheet class="flex-column" color="purple-lighten-5">
-                            <v-sheet class="ma-2 pa-2" color="purple-lighten-5"> <v-btn color="blue-accent-3">Upload Cover
+                            <v-sheet class="ma-2 pa-2" color="purple-lighten-5"> <v-btn color="blue-accent-3" type="input">Upload Cover
                                     Image</v-btn></v-sheet>
   
-                            <v-sheet class="ma-2 pa-2" color="purple-lighten-5"> <v-btn color="blue-grey-lighten-4">Remove
+                            <v-sheet class="ma-2 pa-2" color="purple-lighten-5"> <v-btn color="blue-grey-lighten-4" type="input">Remove
                                     Cover Image</v-btn></v-sheet>
                         </v-sheet>
                     </v-col>
@@ -203,9 +203,9 @@
                     <v-col cols="1">
                         <v-sheet class="d-flex justify-end" color="purple-lighten-5">
                             <v-sheet class="ma-2 pa-2 d-flex" color="purple-lighten-5"> <v-btn
-                                color="green" @click="dialog2 = true">Confirm</v-btn></v-sheet>
+                                color="green" @click="dialog2 = true" type="input">Confirm</v-btn></v-sheet>
                         <v-sheet class="ma-2 pa-2 d-flex" color="purple-lighten-5"> <router-link style="color: blueviolet; text-decoration: none;" to="/home-page" replace><v-btn
-                                color="red">Cancel</v-btn></router-link></v-sheet>
+                                color="red" type="input">Cancel</v-btn></router-link></v-sheet>
                         </v-sheet>
                     </v-col>
                 </v-sheet>
@@ -218,10 +218,10 @@
                           <v-card-actions>
                             <v-spacer></v-spacer>
                            
-                            <router-link style="color: blueviolet; text-decoration: none;" to="/home-page" replace><v-btn color="blue-darken-1" variant="text" @click="dialog2 = false">
+                            <router-link style="color: blueviolet; text-decoration: none;" to="/home-page" replace><v-btn color="blue-darken-1" variant="text" @click="dialog2 = false" type="input">
                                 Yes
                             </v-btn></router-link>
-                            <v-btn color="primary" variant="text" @click="dialog2 = false">
+                            <v-btn color="primary" variant="text" @click="dialog2 = false" type="input">
                               No
                             </v-btn>
                          
