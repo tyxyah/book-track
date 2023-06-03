@@ -1,7 +1,9 @@
 <template>
 
   
-    <v-sheet class="bg-indigo-lighten-5 pa-16 mx-auto "  width="auto" height="877">
+    <v-sheet class="bg-indigo-lighten-5 pa-16 mx-auto "  width="auto" height="1340">
+<span class="font-weight-bold text-h6">CREATE AN ACCOUNT</span>
+      <v-divider></v-divider>
       <v-card class="mx-auto mt-10 px-11 pb-12 pt-7" max-width="500" rounded elevation="8">
       <v-card-title class="mb-5">
       Sign up for Book Track 
@@ -14,6 +16,8 @@
         :error-messages="id.errorMessage.value"
         label="Book Club Member ID"
         type="input"
+        density="comfortable"
+        variant="outlined"
       ></v-text-field>
   
       <v-text-field
@@ -22,6 +26,8 @@
         :error-messages="phone.errorMessage.value"
         label="Phone Number"
         type="input"
+        density="comfortable"
+        variant="outlined"
         
       ></v-text-field>
   
@@ -30,6 +36,8 @@
         :error-messages="email.errorMessage.value"
         label="E-mail Address"
         type="input"
+        variant="outlined"
+        density="comfortable"
       ></v-text-field>
   
       <v-text-field
@@ -42,6 +50,8 @@
     counter
           @click:append="show1 = !show1"
           type="input"
+        variant="outlined"
+        density="comfortable"
   ></v-text-field>
   
   <v-text-field
@@ -54,6 +64,8 @@
     counter
           @click:append="show1 = !show1"
           type="input"
+          variant="outlined"
+          density="comfortable"
   ></v-text-field>
   
       <v-checkbox
@@ -62,17 +74,19 @@
         value="1"
         label="I agree with the terms and conditions"
         type="checkbox"
+        
       ></v-checkbox>
   
       <v-btn
         class="me-4"
         type="submit"
+        color="success"
       >
         submit
       </v-btn>
       
       <router-link style=" color:black; text-decoration: none;" to="/log-in" replace>
-      <v-btn type="cancel" @click="handleReset">
+      <v-btn type="cancel" class="me-4" color="error" @click="handleReset">
         cancel
      </v-btn></router-link>
     </form>
