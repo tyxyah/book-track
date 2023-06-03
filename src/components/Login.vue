@@ -14,16 +14,17 @@
             elevation="8"
             max-width="448"
             rounded="lg"
+            
           >
+          
             <div class="text-subtitle-1 text-medium-emphasis">
               <strong>Book Club Member ID</strong>
             </div>
 
             <v-text-field 
               density="compact"
-              placeholder="Member ID"
+              label="Member ID"
               prepend-inner-icon="mdi-account-outline"
-              variant="outlined"
               type="input"
             ></v-text-field>
 
@@ -117,12 +118,12 @@
             </div>
 
             <v-text-field
-              :append-inner-icon="visible ? 'mdi-eye-off' : 'mdi-eye'"
+              :append-inner-icon="visible ? 'mdi-eye' : 'mdi-eye-off' "
               :type="visible ? 'text' : 'password'"
               density="compact"
-              placeholder="Enter your password"
+              label="Enter your password"
               prepend-inner-icon="mdi-lock-outline"
-              variant="outlined"
+              
               type="input"
               @click:append-inner="visible = !visible"
             ></v-text-field>
