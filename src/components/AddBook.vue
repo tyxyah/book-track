@@ -27,7 +27,8 @@
                     </v-col>
                     <v-col cols="6">
                         <v-sheet class="align-self-center">
-                            <v-text-field density="compact" variant="solo" single-line hide-details  type="input"></v-text-field>
+                            <v-text-field density="compact" variant="solo" single-line hide-details  type="input"
+                            v-model = "title"></v-text-field>
                         </v-sheet>
                     </v-col>
                 </v-sheet>
@@ -45,7 +46,8 @@
                     </v-col>
                     <v-col cols="6">
                         <v-sheet class="align-self-center">
-                            <v-text-field density="compact" variant="solo" single-line hide-details type="input"></v-text-field>
+                            <v-text-field density="compact" variant="solo" single-line hide-details type="input"
+                            v-model = "author"></v-text-field>
                         </v-sheet>
                     </v-col>
                 </v-sheet>
@@ -62,7 +64,8 @@
                     </v-col>
                     <v-col cols="6">
                         <v-sheet class="align-self-center">
-                            <v-text-field density="compact" variant="solo" single-line hide-details type="date"></v-text-field>
+                            <v-text-field density="compact" variant="solo" single-line hide-details type="date"
+                            v-model = "publication_date"></v-text-field>
                         </v-sheet>
                     </v-col>
                 </v-sheet>
@@ -79,7 +82,8 @@
                     </v-col>
                     <v-col cols="6">
                         <v-sheet class="align-self-center">
-                            <v-text-field variant="solo" density="compact" single-line hide-details type="input"></v-text-field>
+                            <v-text-field variant="solo" density="compact" single-line hide-details type="input"
+                            v-model = "isbn"></v-text-field>
                         </v-sheet>
                     </v-col>
                 </v-sheet>
@@ -96,7 +100,8 @@
                     </v-col>
                     <v-col cols="6">
                         <v-sheet class="align-self-center">
-                            <v-text-field variant="solo" density="compact" single-line hide-details type="input"></v-text-field>
+                            <v-text-field variant="solo" density="compact" single-line hide-details type="input"
+                            v-model = "uuid"></v-text-field>
                         </v-sheet>
                     </v-col>
                 </v-sheet>
@@ -106,14 +111,14 @@
   
                 <v-sheet class="d-flex" color="purple-lighten-5">
                     <v-col cols="3">
-                        <v-sheet class="ma-2 pa-2 " color="purple-lighten-5"> Genre</v-sheet>
+                        <v-sheet class="ma-2 pa-2 " color="purple-lighten-5">Genre</v-sheet>
                     </v-col>
                     <v-col cols="1">
                         <v-sheet class="ma-2 pa-2 me-auto " color="purple-lighten-5"> :</v-sheet>
                     </v-col>
                     <v-col cols="6">
                         <v-sheet class="align-self-center">
-                            <v-combobox single-line hide-details variant="solo" v-model="value2" :items="genre"
+                            <v-combobox single-line hide-details variant="solo" v-model="genre" :items="genre_list"
                                 density="compact" type="input"></v-combobox>
                         </v-sheet>
                     </v-col>
@@ -131,7 +136,7 @@
                     </v-col>
                     <v-col cols="6">
                         <v-sheet class="align-self-center">
-                            <v-combobox single-line hide-details variant="solo" v-model="value" :items="availability"
+                            <v-combobox single-line hide-details variant="solo" v-model="availability" :items="availability_list"
                                 density="compact" type="input"></v-combobox>
                         </v-sheet>
                     </v-col>
@@ -203,7 +208,7 @@
                     <v-col cols="1">
                         <v-sheet class="d-flex justify-end" color="purple-lighten-5">
                             <v-sheet class="ma-2 pa-2 d-flex" color="purple-lighten-5"> <v-btn
-                                color="green" @click="dialog2 = true" type="input">Confirm</v-btn></v-sheet>
+                                color="green" @click="dialog2 = true" type="input">Confirm </v-btn></v-sheet>
                         <v-sheet class="ma-2 pa-2 d-flex" color="purple-lighten-5"> <router-link style="color: blueviolet; text-decoration: none;" to="/home-page" replace><v-btn
                                 color="red" type="input">Cancel</v-btn></router-link></v-sheet>
                         </v-sheet>
@@ -218,7 +223,7 @@
                           <v-card-actions>
                             <v-spacer></v-spacer>
                            
-                            <router-link style="color: blueviolet; text-decoration: none;" to="/home-page" replace><v-btn color="blue-darken-1" variant="text" @click="dialog2 = false" type="input">
+                            <router-link style="color: blueviolet; text-decoration: none;" to="/home-page" replace><v-btn color="blue-darken-1" variant="text" @click=addBook() type="input">
                                 Yes
                             </v-btn></router-link>
                             <v-btn color="primary" variant="text" @click="dialog2 = false" type="input">
@@ -244,21 +249,46 @@
   </template>
   
   <script>
+  import axios from "axios";
   export default {
-    data: () => ({
-        availability: ['Available', 'Non-Available'],
-        value: 'Available',
-        genre: ['Thriller', 'Comedian', 'Horror', 'Romantic'],
-        value2: 'Thriller',
-        visible: false,
-        dialog: false,
-        dialog2: false,
-        rules: [
-          value => {
-            return !value || !value.length || value[0].size < 2000000 || 'Avatar size should be less than 2 MB!'
-          },
-        ],
-    }),
+    data() {
+    return {
+      title: "",
+      author: "",
+      publication_date: "",
+      isbn: "",
+      uuid: "",
+      synopsis: "",
+      availability_list: ['Available', 'Non-Available'],
+      availability: 'Available',
+      genre_list: ['Thriller', 'Comedian', 'Horror', 'Romantic'],
+      genre: 'Thriller',
+      visible: false,
+      dialog: false,
+      dialog2: false,
+    };
+  },
+    methods: {
+        async addBook() {
+            try{
+            const url = "https://8643dwkn0a.execute-api.ap-southeast-2.amazonaws.com/dev/book";
+            const payload = {
+                title: this.title,
+                author: this.author,
+                publication_date: this.publication_date,
+                isbn: this.isbn,
+                uuid: this.uuid,
+                synopsis: this.synopsis,
+                availability: this.availability,
+                genre: this.genre
+            }
+            const res = await axios.post(url, payload)
+            console.log(res.data);
+            }
+            catch(e){
+                console.log(e);
+            }
+        }
+    },
   }
-  
   </script>
