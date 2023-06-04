@@ -154,7 +154,7 @@
                     </v-col>
                     <v-col cols="6">
                         <v-sheet class="align-self-center">
-                            <v-text-field variant="solo" density="compact" single-line hide-details type="input"></v-text-field>
+                            <v-text-field variant="solo" density="compact" single-line hide-details type="input" v-model="synopsis"></v-text-field>
                         </v-sheet>
                     </v-col>
                 </v-sheet>
@@ -208,7 +208,7 @@
                     <v-col cols="1">
                         <v-sheet class="d-flex justify-end" color="purple-lighten-5">
                             <v-sheet class="ma-2 pa-2 d-flex" color="purple-lighten-5"> <v-btn
-                                color="green" @click="dialog2 = true" type="input">Confirm </v-btn></v-sheet>
+                                color="green" @click="dialog2 = true" type="input">Add Book </v-btn></v-sheet>
                         <v-sheet class="ma-2 pa-2 d-flex" color="purple-lighten-5"> <router-link style="color: blueviolet; text-decoration: none;" to="/home-page" replace><v-btn
                                 color="red" type="input">Cancel</v-btn></router-link></v-sheet>
                         </v-sheet>
