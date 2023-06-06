@@ -206,7 +206,7 @@
                         <v-sheet class="d-flex justify-end" color="purple-lighten-5">
                             <v-sheet class="ma-2 pa-2 d-flex" color="purple-lighten-5"> <v-btn
                                 color="green" @click="dialog2 = true" type="input">Confirm</v-btn></v-sheet>
-                     <!---->  <v-sheet class="ma-2 pa-2 d-flex" color="purple-lighten-5"> <router-link style="color: green; text-decoration: none;" to="/book-detail" replace><v-btn
+                     <!---->  <v-sheet class="ma-2 pa-2 d-flex" color="purple-lighten-5"> <router-link style="color: green; text-decoration: none;" to="/home-page" replace><v-btn
                                 color="red" @click="dialog2 = false" type="input">Cancel</v-btn></router-link></v-sheet>
                         </v-sheet>
                     </v-col>
