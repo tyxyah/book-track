@@ -10,7 +10,7 @@
                     <v-card-title>Edit a book</v-card-title>
                 </v-sheet>
                 <v-sheet class="ma-2 pa-2" color="purple-lighten-5">
-                    <router-link style="color: black; text-decoration: none;" to="/book-detail" replace><v-btn icon height="30" width="30" variant="text"  type="input">
+                    <router-link style="color: black; text-decoration: none;" to="/home-page" replace><v-btn icon height="30" width="30" variant="text"  type="input">
                         <v-icon>mdi-close</v-icon>
                     </v-btn></router-link>
                 </v-sheet>
