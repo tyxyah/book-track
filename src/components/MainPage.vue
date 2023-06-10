@@ -1,85 +1,48 @@
 <template>
-  <v-card height="90" color="primary">
-    <div class="d-flex" color="primary">
-      <v-col cols="1"> </v-col>
-      <v-col cols="2">
-        <v-sheet class="pa-2" color="primary" density="compact">
-          <router-link
-            style="color: white; text-decoration: none"
-            to="/home-page"
-            replace
-            ><v-btn flat style="background-color: transparent" type="input">
-              <v-card-title style="color: white">BookTrack</v-card-title>
-            </v-btn></router-link
-          ></v-sheet
-        >
-      </v-col>
-      <v-col cols="6">
-        <v-sheet class="ma-1 pa-2" color="primary">
-          <v-text-field
-            :loading="loading"
-            density="compact"
-            variant="solo"
-            placeholder="Search from your collection..."
-            append-inner-icon="mdi-magnify"
-            single-line
-            hide-details
-            @click:append-inner="onClick"
-            type="input"
-            v-model="searchQuery"
-          ></v-text-field>
-        </v-sheet>
-      </v-col>
+ <v-card height="90" color="indigo-lighten-5" class=" rounded-0" elevation="0">
+    <v-container justify="center" align="center">
+      <v-card width="1600" color="indigo-lighten-5" elevation="0" class="justify-start rounded-0 pa-2 ma-1">
 
-      <v-spacer></v-spacer>
-      <v-col cols="4">
-        <div class="d-flex">
-          <v-sheet class="ma-2 pa-2" color="primary">
-            <v-checkbox
-              color="black"
-              density="compact"
-              label=": Availability"
-              v-model="checkbox"
-              type="checkbox"
-            >
-            </v-checkbox>
+        <v-row align="center">
+
+
+
+          <v-sheet class="pa-2 ma-1" color="indigo-lighten-5" density="compact">
+            <router-link style="color: white; text-decoration: none;" to="/home-page" replace><v-row> <v-img height="50"
+                  width="90" src="https://booktrack.app/wp-content/uploads/2022/08/book-track-app-icon.webp"></v-img>
+                <div class="myFont" align="center">BookTrack</div>
+              </v-row></router-link>
+
           </v-sheet>
-          <v-sheet class="ma-2 pa-2" color="primary">
-            <router-link
-              style="color: black; text-decoration: none"
-              to="/search-book"
-              replace
-              ><v-btn type="input"> Search </v-btn></router-link
-            >
-          </v-sheet>
-          <v-sheet class="ml-2 pa-2" color="primary">
-            <router-link
-              style="color: black; text-decoration: none"
-              to="/log-in"
-              replace
-              ><v-btn icon color="white"
-                ><v-icon>mdi-logout</v-icon></v-btn
-              ></router-link
-            >
-          </v-sheet>
-        </div>
-      </v-col>
-    </div>
+          <v-spacer></v-spacer>
+          <v-card width="1000" color="indigo-lighten-5" class="justify-start rounded-0 pa-2 ma-1"
+            elevation="0"><v-text-field   :loading="loading" density="compact" variant="solo" label="Search Book"
+              append-inner-icon="mdi-magnify" single-line hide-details @click:append-inner="onClick" type="input" v-model="searchQuery" ></v-text-field></v-card>
+
+          <v-sheet class="ml-2 pa-2  " color="indigo-lighten-5" density="conformtable">
+            <router-link style="color: white; text-decoration: none;" to="/log-in" replace><v-btn>Log
+                Out</v-btn></router-link>
+                 </v-sheet>
+
+
+        </v-row></v-card> </v-container>
   </v-card>
-  <v-container> </v-container>
+ 
+  <v-container  align="center">
+    <v-card width="1550" color="white" elevation="0">
+      <div class="d-flex ">
+      <div class="ma-1 pa-1 me-auto">Collection of Booktrack's Member</div>
+      <div class="ma-1 pa-1"><router-link style="color: white; text-decoration: none" to="/add-book">
+      <v-btn color="#278fa3" icon="mdi-plus" height="35px" width="35px">
+        <v-icon color="white">mdi-plus</v-icon></v-btn></router-link></div>
+      </div>
+    </v-card></v-container>
 
-  <!--Add Book Button-->
-  <v-row justify="end" margin-right="500px">
-    <router-link style="color: black; text-decoration: none" to="/add-book">
-      <v-btn color="blue" icon="mdi-plus" size="small">
-        <v-icon>mdi-plus</v-icon></v-btn
-      >
-    </router-link>
-  </v-row>
   <!------------------>
 
-  <v-container>
-    <v-row v-for="rowIdx in Math.ceil(bookList.length / 5)">
+<v-container justify="center" align="center"><v-card width="1550" color="white">
+    <v-container></v-container>
+    <v-row justify="center" align="center" v-for="rowIdx in Math.ceil(bookList.length / 5)">
       <v-col
         v-for="item in filteredItems.slice(5 * (rowIdx - 1), 5 * rowIdx)"
         :key="item.uuid"
@@ -106,6 +69,7 @@
       </v-col>
     </v-row>
     <v-divider></v-divider>
+  </v-card>
   </v-container>
   <v-container></v-container>
 </template>
@@ -180,3 +144,16 @@ export default {
   },
 };
 </script>
+
+<style>
+.myFont {
+  font-family: 'Gabriola', serif;
+  color: black;
+  position: absolute;
+  top: 14%;
+  width: 16%;
+  font-size: 30px;
+
+}
+
+</style>
