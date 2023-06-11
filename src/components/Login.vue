@@ -10,26 +10,26 @@
           ></v-img>
 
           <v-card
-            class="mx-auto mt-16 pa-12"
+            class="mx-auto mt-16 pa-10"
             elevation="8"
-            max-width="448"
+            width="430"
+            height="430"
             rounded="lg"
-            
           >
-          
-            <div class="text-subtitle-1 text-medium-emphasis">
+            <div class="text-subtitle-1 text-medium-emphasis mt-3">
               <strong>Book Club Member ID</strong>
             </div>
 
-            <v-text-field 
+            <v-text-field
               density="compact"
               label="Member ID"
               prepend-inner-icon="mdi-account-outline"
               type="input"
+              v-model="member_id"
             ></v-text-field>
 
             <div
-              class="text-subtitle-1 text-medium-emphasis d-flex align-center justify-space-between"
+              class="text-subtitle-1 text-medium-emphasis d-flex align-center justify-space-between mt-2"
             >
               <strong>Password</strong>
 
@@ -51,7 +51,11 @@
                   </v-card-title>
                   <v-card-text>
                     <v-container>
-                      <v-text-field label="Email" type="input" required></v-text-field>
+                      <v-text-field
+                        label="Email"
+                        type="input"
+                        required
+                      ></v-text-field>
                     </v-container>
                   </v-card-text>
                   <v-card-actions>
@@ -118,63 +122,45 @@
             </div>
 
             <v-text-field
-              :append-inner-icon="visible ? 'mdi-eye' : 'mdi-eye-off' "
-              :type="visible ? 'text' : 'password'"
+              :append-inner-icon="visible ? 'mdi-eye' : 'mdi-eye-off'"
+              :type="visible ? 'input' : 'password'"
               density="compact"
               label="Enter your password"
               prepend-inner-icon="mdi-lock-outline"
-              
-              type="input"
+              v-model="password"
               @click:append-inner="visible = !visible"
             ></v-text-field>
 
-            <v-card class="mb-12" color="surface-variant" variant="tonal">
-              <v-card-text
-                class="text-medium-emphasis text-caption text-center"
-              >
-                Warning: After 3 consecutive failed login attempts, you account
-                will be temporarily locked for three hours. If you must login
-                now, you can also click "Forgot password?" below to reset the
-                login password.
-              </v-card-text>
-            </v-card>
+            <v-btn
+              block
+              class="mb-5 mt-7"
+              color="purple"
+              size="large"
+              variant="tonal"
+              type="input"
+              @click="login"
+            >
+              LOG IN
+            </v-btn>
 
             <router-link
-              style="color: purple; text-decoration: none"
-              to="/home-page"
+              style="color: blue; text-decoration: none"
+              to="/sign-up"
               replace
             >
               <v-btn
                 block
                 class="mb-5"
-                color="purple"
-                size="large"
-                variant="tonal"
+                variant="plain"
+                size="small"
+                color="blue"
                 type="input"
+                v-bind="props"
               >
-                LOG IN
-              </v-btn></router-link
-            >
-
-            <router-link
-                style="color: blue; text-decoration: none"
-                to="/sign-up"
-                replace
-              >
-            <v-btn
-              block
-              class="mb-5"
-              variant="plain"
-              size="small"
-              color="blue"
-              type="input"
-              v-bind="props"
-            >
-              
                 Sign up now
-                <v-icon icon="mdi-chevron-right"></v-icon></v-btn>
-                </router-link
-            >
+                <v-icon icon="mdi-chevron-right"></v-icon
+              ></v-btn>
+            </router-link>
           </v-card>
         </v-row>
       </v-container>
@@ -183,11 +169,54 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
-  data: () => ({
-    visible: false,
-    dialog: false,
-    dialog2: false,
-  }),
+  data() {
+    return {
+      member_id: "",
+      password: "",
+      user_data: [],
+      matchUser: undefined,
+      errors: [],
+      visible: false,
+      dialog: false,
+      dialog2: false,
+    };
+  },
+
+  methods: {
+    async login() {
+      try {
+        const url =
+          "https://8643dwkn0a.execute-api.ap-southeast-2.amazonaws.com/dev/user";
+        const payload = {
+          member_id: this.member_id,
+          password: this.password,
+        };
+        console.log(payload);
+        const response = await axios.get(url);
+        this.user_data = response.data.Items;
+        console.log(this.user_data);
+
+        const matchingUser = this.user_data.find(
+          (user) =>
+            user.member_id === payload.member_id &&
+            user.password === payload.password
+        );
+
+        if (matchingUser) {
+          this.matchUser = matchingUser;
+          console.log("You are logged in");
+          this.$router.push("/home-page");
+        } else {
+          console.log("Invalid credentials. Please try again.");
+          alert('Wrong credentials, please try again!')
+        }
+
+      } catch (error) {
+        console.log("error", error);
+      }
+    },
+  },
 };
 </script>
