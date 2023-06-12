@@ -1,13 +1,13 @@
 <template>
- <v-card height="90" color="indigo-lighten-5" class=" rounded-0" elevation="0">
+ <v-card height="90" color="indigo-lighten-5" class=" rounded-0" elevation="0" width=100%>
     <v-container justify="center" align="center">
-      <v-card width="1600" color="indigo-lighten-5" elevation="0" class="justify-start rounded-0 pa-2 ma-1">
+      <v-card width=100% color="indigo-lighten-5" elevation="0" class="justify-start rounded-0 pa-2 ma-1">
 
         <v-row align="center">
 
 
 
-          <v-sheet class="pa-2 ma-1" color="indigo-lighten-5" density="compact">
+          <v-sheet class="pa-2 ma-1" color="indigo-lighten-5" density="compact" width=5%>
             <router-link style="color: white; text-decoration: none;" to="/home-page" replace><v-row> <v-img height="50"
                   width="90" src="https://booktrack.app/wp-content/uploads/2022/08/book-track-app-icon.webp"></v-img>
                 <div class="myFont" align="center">BookTrack</div>
@@ -15,11 +15,11 @@
 
           </v-sheet>
           <v-spacer></v-spacer>
-          <v-card width="1000" color="indigo-lighten-5" class="justify-start rounded-0 pa-2 ma-1"
+          <v-card width=50% color="indigo-lighten-5" class="justify-start rounded-0 pa-2 ma-1"
             elevation="0"><v-text-field   :loading="loading" density="compact" variant="solo" label="Search Book"
               append-inner-icon="mdi-magnify" single-line hide-details @click:append-inner="onClick" type="input" v-model="searchQuery" ></v-text-field></v-card>
 
-          <v-sheet class="ml-2 pa-2  " color="indigo-lighten-5" density="conformtable">
+          <v-sheet class="ml-2 pa-2  " color="indigo-lighten-5" density="conformtable" width=12%>
             <router-link style="color: white; text-decoration: none;" to="/log-in" replace><v-btn>Log
                 Out</v-btn></router-link>
                  </v-sheet>
@@ -29,7 +29,7 @@
   </v-card>
  
   <v-container  align="center">
-    <v-card width="1550" color="white" elevation="0">
+    <v-card width=100% color="white" elevation="0">
       <div class="d-flex ">
       <div class="ma-1 pa-1 me-auto">Collection of Booktrack's Member</div>
       <div class="ma-1 pa-1"><router-link style="color: white; text-decoration: none" to="/add-book">
@@ -40,7 +40,7 @@
 
   <!------------------>
 
-<v-container justify="center" align="center"><v-card width="1550" color="white">
+<v-container justify="center" align="center"><v-card width=100% color="white">
     <v-container></v-container>
     <v-row justify="center" align="center" v-for="rowIdx in Math.ceil(bookList.length / 5)">
       <v-col
@@ -151,7 +151,7 @@ export default {
   color: black;
   position: absolute;
   top: 14%;
-  width: 16%;
+  width: 24%;
   font-size: 30px;
 
 }
