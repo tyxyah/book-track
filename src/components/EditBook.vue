@@ -250,10 +250,12 @@
           <v-col cols="4">
             <v-sheet class="flex-column" color="purple-lighten-5">
               <v-sheet class="ma-2 pa-2" color="purple-lighten-5">
-                <v-btn color="blue-accent-3 mt-4" @click="getImage()"
-                  >Edit Cover Image</v-btn
-                ></v-sheet
-              >
+                <input
+                  type="file"
+                  accept="image/png, image/jpeg"
+                  @change="onUploadImage($event)"
+                />
+              </v-sheet>
             </v-sheet>
           </v-col>
         </v-sheet>
@@ -268,10 +270,10 @@
           <v-col cols="1">
             <v-sheet class="d-flex justify-end" color="purple-lighten-5">
               <v-sheet class="ma-2 pa-2 d-flex" color="purple-lighten-5">
-                <v-btn color="green" @click="dialog2 = true" type="input"
-                  >Confirm</v-btn
-                ></v-sheet
-              >
+                <v-btn color="green" @click="dialog2 = true" type="input">
+                  Confirm
+                </v-btn>
+              </v-sheet>
               <!---->
               <v-sheet class="ma-2 pa-2 d-flex" color="purple-lighten-5">
                 <router-link
@@ -293,7 +295,16 @@
             <v-card-actions>
               <v-spacer></v-spacer>
 
-              <router-link
+              <v-btn
+                color="blue"
+                variant="text"
+                @click="update_database()"
+                type="input"
+              >
+                Yes
+              </v-btn>
+
+              <!-- <router-link
                 style="color: green; text-decoration: none"
                 to="/home-page"
                 replace
@@ -306,7 +317,7 @@
                 >
                   Yes
                 </v-btn></router-link
-              >
+              > -->
               <v-btn
                 color="red"
                 variant="text"
@@ -325,6 +336,8 @@
 
 <script>
 import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
+
 export default {
   data: () => ({
     availability: ["Available", "Non-Available"],
@@ -335,6 +348,7 @@ export default {
     dialog: false,
     dialog2: false,
     dialog3: false,
+    uploadedFile: null,
 
     book_details: {
       // book: [],
@@ -355,6 +369,11 @@ export default {
   },
 
   methods: {
+    onUploadImage(event) {
+      console.log("on upload image", event.target.files);
+      this.uploadedFile = event.target.files[0];
+      this.book_details.image_name = URL.createObjectURL(event.target.files[0]);
+    },
     async getImage(image_name) {
       try {
         const getSignedUrl = `https://8643dwkn0a.execute-api.ap-southeast-2.amazonaws.com/dev/book/image?image_name=${image_name}`;
@@ -388,10 +407,29 @@ export default {
         console.log(e);
       }
     },
+    async generateUploadPresignedUrl(imageName) {
+      try {
+        console.log("starting to generate presigned url");
+
+        const res = await axios.post(
+          `https://8643dwkn0a.execute-api.ap-southeast-2.amazonaws.com/dev/book/image?image_name=${imageName}`
+        );
+        return res.data.upload_presigned_url;
+      } catch (e) {
+        console.log("error generating presigned url", e);
+        return null;
+      }
+    },
+    renameFile(file, newFileName) {
+      const blob = file.slice(0, file.size, file.type);
+
+      return new File([blob], `${newFileName}.${file.type.split("/").pop()}`, {
+        type: file.type,
+      });
+    },
     async update_database() {
       try {
-        const image_name = await this.getImage();
-        const payload = {
+        let payload = {
           title: this.book_details.title,
           author: this.book_details.author,
           publication_date: this.book_details.publication_date,
@@ -399,15 +437,35 @@ export default {
           uuid: this.book_details.uuid,
           genre: this.book_details.genre,
           synopsis: this.book_details.synopsis,
-          image_name: image_name,
         };
+
+        if (this.uploadedFile !== null) {
+          const image = this.renameFile(this.uploadedFile, uuidv4());
+          const uploadPresignedUrl = await this.generateUploadPresignedUrl(
+            image.name
+          );
+
+          console.log("the image", image, typeof image);
+          console.log("start upload image with the url", uploadPresignedUrl);
+          await axios.put(uploadPresignedUrl, image);
+          console.log("end upload image");
+
+          payload = {
+            ...payload,
+            image_name: image.name,
+          };
+        }
 
         const url =
           "https://8643dwkn0a.execute-api.ap-southeast-2.amazonaws.com/dev/book";
 
+        console.log("start update db");
         const result = await axios.put(url, payload);
+        console.log("end update db");
         console.log(result.data);
+        this.dialog2 = false;
       } catch (e) {
+        console.log(e);
         console.log(e.response.data);
       }
     },
