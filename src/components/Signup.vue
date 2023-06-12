@@ -1,10 +1,11 @@
 <template>
-  <v-sheet class="bg-indigo-lighten-5 pa-16 mx-auto" width="auto" height="1340">
+  <v-sheet class="bg-indigo-lighten-5 pa-16 mx-auto" height="840">
     <span class="font-weight-bold text-h6">CREATE AN ACCOUNT</span>
     <v-divider></v-divider>
     <v-card
       class="mx-auto mt-10 px-11 pb-12 pt-7"
       max-width="500"
+      height="600"
       rounded
       elevation="8"
     >
