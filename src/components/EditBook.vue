@@ -1,16 +1,25 @@
 <template>
   <v-container></v-container>
   <v-row justify="center">
-    <v-card width="940" color="purple-lighten-5" rounded="100" density="compact">
+    <v-card
+      width="940"
+      color="purple-lighten-5"
+      rounded="100"
+      density="compact"
+    >
       <div class="d-flex align-center">
         <v-sheet class="ma-2 pa-2 me-auto" color="purple-lighten-5">
           <v-card-title>Edit a book</v-card-title>
         </v-sheet>
         <v-sheet class="ma-2 pa-2" color="purple-lighten-5">
-          <router-link style="color: black; text-decoration: none" to="/home-page" replace><v-btn icon height="30"
-              width="30" variant="text" type="input">
+          <router-link
+            style="color: black; text-decoration: none"
+            to="/home-page"
+            replace
+            ><v-btn icon height="30" width="30" variant="text" type="input">
               <v-icon>mdi-close</v-icon>
-            </v-btn></router-link>
+            </v-btn></router-link
+          >
         </v-sheet>
       </div>
 
@@ -22,12 +31,18 @@
           </v-col>
           <v-col cols="1">
             <v-sheet class="ma-2 pa-2 me-auto" color="purple-lighten-5">
-              :</v-sheet>
+              :</v-sheet
+            >
           </v-col>
           <v-col cols="6">
             <v-sheet class="align-self-center">
-              <v-text-field density="compact" variant="solo" single-line hide-details
-                v-model="book_details.title"></v-text-field>
+              <v-text-field
+                density="compact"
+                variant="solo"
+                single-line
+                hide-details
+                v-model="book_details.title"
+              ></v-text-field>
             </v-sheet>
           </v-col>
         </v-sheet>
@@ -37,16 +52,23 @@
         <v-sheet class="d-flex" color="purple-lighten-5">
           <v-col cols="3">
             <v-sheet class="ma-2 pa-2" color="purple-lighten-5">
-              Author</v-sheet>
+              Author</v-sheet
+            >
           </v-col>
           <v-col cols="1">
             <v-sheet class="ma-2 pa-2 me-auto" color="purple-lighten-5">
-              :</v-sheet>
+              :</v-sheet
+            >
           </v-col>
           <v-col cols="6">
             <v-sheet class="align-self-center">
-              <v-text-field density="compact" variant="solo" single-line hide-details
-                v-model="book_details.author"></v-text-field>
+              <v-text-field
+                density="compact"
+                variant="solo"
+                single-line
+                hide-details
+                v-model="book_details.author"
+              ></v-text-field>
             </v-sheet>
           </v-col>
         </v-sheet>
@@ -55,16 +77,23 @@
         <v-sheet class="d-flex" color="purple-lighten-5">
           <v-col cols="3">
             <v-sheet class="ma-2 pa-2" color="purple-lighten-5">
-              Publication Date</v-sheet>
+              Publication Date</v-sheet
+            >
           </v-col>
           <v-col cols="1">
             <v-sheet class="ma-2 pa-2 me-auto" color="purple-lighten-5">
-              :</v-sheet>
+              :</v-sheet
+            >
           </v-col>
           <v-col cols="6">
             <v-sheet class="align-self-center">
-              <v-text-field density="compact" variant="solo" single-line hide-details
-                v-model="book_details.publication_date"></v-text-field>
+              <v-text-field
+                density="compact"
+                variant="solo"
+                single-line
+                hide-details
+                v-model="book_details.publication_date"
+              ></v-text-field>
             </v-sheet>
           </v-col>
         </v-sheet>
@@ -76,12 +105,18 @@
           </v-col>
           <v-col cols="1">
             <v-sheet class="ma-2 pa-2 me-auto" color="purple-lighten-5">
-              :</v-sheet>
+              :</v-sheet
+            >
           </v-col>
           <v-col cols="6">
             <v-sheet class="align-self-center">
-              <v-text-field variant="solo" density="compact" single-line hide-details
-                v-model="book_details.isbn"></v-text-field>
+              <v-text-field
+                variant="solo"
+                density="compact"
+                single-line
+                hide-details
+                v-model="book_details.isbn"
+              ></v-text-field>
             </v-sheet>
           </v-col>
         </v-sheet>
@@ -93,12 +128,18 @@
           </v-col>
           <v-col cols="1">
             <v-sheet class="ma-2 pa-2 me-auto" color="purple-lighten-5">
-              :</v-sheet>
+              :</v-sheet
+            >
           </v-col>
           <v-col cols="6">
             <v-sheet class="align-self-center">
-              <v-text-field variant="solo" density="compact" single-line hide-details
-                v-model="book_details.uuid"></v-text-field>
+              <v-text-field
+                variant="solo"
+                density="compact"
+                single-line
+                hide-details
+                v-model="book_details.uuid"
+              ></v-text-field>
             </v-sheet>
           </v-col>
         </v-sheet>
@@ -110,12 +151,19 @@
           </v-col>
           <v-col cols="1">
             <v-sheet class="ma-2 pa-2 me-auto" color="purple-lighten-5">
-              :</v-sheet>
+              :</v-sheet
+            >
           </v-col>
           <v-col cols="6">
             <v-sheet class="align-self-center">
-              <v-combobox single-line hide-details variant="solo" v-model="value2" :items="genre"
-                density="compact"></v-combobox>
+              <v-combobox
+                single-line
+                hide-details
+                variant="solo"
+                v-model="value2"
+                :items="genre"
+                density="compact"
+              ></v-combobox>
             </v-sheet>
           </v-col>
         </v-sheet>
@@ -124,16 +172,24 @@
         <v-sheet class="d-flex" color="purple-lighten-5">
           <v-col cols="3">
             <v-sheet class="ma-2 pa-2" color="purple-lighten-5">
-              Status of Availability</v-sheet>
+              Status of Availability</v-sheet
+            >
           </v-col>
           <v-col cols="1">
             <v-sheet class="ma-2 pa-2 me-auto" color="purple-lighten-5">
-              :</v-sheet>
+              :</v-sheet
+            >
           </v-col>
           <v-col cols="6">
             <v-sheet class="align-self-center">
-              <v-combobox single-line hide-details variant="solo" v-model="value" :items="availability"
-                density="compact"></v-combobox>
+              <v-combobox
+                single-line
+                hide-details
+                variant="solo"
+                v-model="value"
+                :items="availability"
+                density="compact"
+              ></v-combobox>
             </v-sheet>
           </v-col>
         </v-sheet>
@@ -142,16 +198,23 @@
         <v-sheet class="d-flex" color="purple-lighten-5">
           <v-col cols="3">
             <v-sheet class="ma-2 pa-2" color="purple-lighten-5">
-              Synopsis</v-sheet>
+              Synopsis</v-sheet
+            >
           </v-col>
           <v-col cols="1">
             <v-sheet class="ma-2 pa-2 me-auto" color="purple-lighten-5">
-              :</v-sheet>
+              :</v-sheet
+            >
           </v-col>
           <v-col cols="6">
             <v-sheet class="align-self-center">
-              <v-text-field variant="solo" density="compact" single-line hide-details
-                v-model="book_details.synopsis"></v-text-field>
+              <v-text-field
+                variant="solo"
+                density="compact"
+                single-line
+                hide-details
+                v-model="book_details.synopsis"
+              ></v-text-field>
             </v-sheet>
           </v-col>
         </v-sheet>
@@ -160,23 +223,29 @@
         <v-sheet class="d-flex" color="purple-lighten-5">
           <v-col cols="3">
             <v-sheet class="ma-2 pa-2" color="purple-lighten-5">
-              Cover Image</v-sheet>
+              Cover Image</v-sheet
+            >
           </v-col>
           <v-col cols="1">
             <v-sheet class="ma-2 pa-2 me-auto" color="purple-lighten-5">
-              :</v-sheet>
+              :</v-sheet
+            >
           </v-col>
 
           <v-col cols="3">
             <v-sheet class="ma-2 pa-2" color="purple-lighten-5">
               <v-img contain height="300" :src="book_details.image_name">
-              </v-img></v-sheet>
+              </v-img
+            ></v-sheet>
           </v-col>
 
           <v-col cols="4">
             <v-sheet class="flex-column" color="purple-lighten-5">
               <v-sheet class="ma-2 pa-2" color="purple-lighten-5">
-                <v-btn color="blue-accent-3 mt-4" @click="getImage()">Edit Cover Image</v-btn></v-sheet>
+                <v-btn color="blue-accent-3 mt-4" @click="getImage()"
+                  >Edit Cover Image</v-btn
+                ></v-sheet
+              >
             </v-sheet>
           </v-col>
         </v-sheet>
@@ -191,11 +260,21 @@
           <v-col cols="1">
             <v-sheet class="d-flex justify-end" color="purple-lighten-5">
               <v-sheet class="ma-2 pa-2 d-flex" color="purple-lighten-5">
-                <v-btn color="green" @click="dialog2 = true" type="input">Confirm</v-btn></v-sheet>
+                <v-btn color="green" @click="dialog2 = true" type="input"
+                  >Confirm</v-btn
+                ></v-sheet
+              >
               <!---->
               <v-sheet class="ma-2 pa-2 d-flex" color="purple-lighten-5">
-                <router-link style="color: green; text-decoration: none" to="/home-page" replace><v-btn color="red"
-                    @click="dialog2 = false" type="input">Cancel</v-btn></router-link></v-sheet>
+                <router-link
+                  style="color: green; text-decoration: none"
+                  to="/home-page"
+                  replace
+                  ><v-btn color="red" @click="dialog2 = false" type="input"
+                    >Cancel</v-btn
+                  ></router-link
+                ></v-sheet
+              >
             </v-sheet>
           </v-col>
         </v-sheet>
@@ -206,11 +285,26 @@
             <v-card-actions>
               <v-spacer></v-spacer>
 
-              <router-link style="color: green; text-decoration: none" to="/home-page" replace
-                @click="update_database()"><v-btn color="green" variant="text" @click="dialog2 = false" type="input">
+              <router-link
+                style="color: green; text-decoration: none"
+                to="/home-page"
+                replace
+                @click="update_database()"
+                ><v-btn
+                  color="green"
+                  variant="text"
+                  @click="dialog2 = false"
+                  type="input"
+                >
                   Yes
-                </v-btn></router-link>
-              <v-btn color="red" variant="text" @click="dialog2 = false" type="input">
+                </v-btn></router-link
+              >
+              <v-btn
+                color="red"
+                variant="text"
+                @click="dialog2 = false"
+                type="input"
+              >
                 No
               </v-btn>
             </v-card-actions>
@@ -243,7 +337,7 @@ export default {
       uuid: "",
       genre: "",
       synopsis: "",
-      image_name: ""
+      image_name: "",
     },
   }),
 
@@ -260,8 +354,7 @@ export default {
         this.image_name = res.data.image_name;
         console.log(res.data);
         return this.image_name;
-      }
-      catch (e) {
+      } catch (e) {
         console.log(e);
       }
     },
@@ -299,8 +392,7 @@ export default {
           uuid: this.book_details.uuid,
           genre: this.book_details.genre,
           synopsis: this.book_details.synopsis,
-          image_name: image_name
-
+          image_name: image_name,
         };
 
         const url =
