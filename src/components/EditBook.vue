@@ -223,20 +223,28 @@
         <v-sheet class="d-flex" color="purple-lighten-5">
           <v-col cols="3">
             <v-sheet class="ma-2 pa-2" color="purple-lighten-5">
-              Cover Image</v-sheet
-            >
+              Cover Image
+            </v-sheet>
           </v-col>
           <v-col cols="1">
             <v-sheet class="ma-2 pa-2 me-auto" color="purple-lighten-5">
-              :</v-sheet
-            >
+              :
+            </v-sheet>
           </v-col>
 
           <v-col cols="3">
             <v-sheet class="ma-2 pa-2" color="purple-lighten-5">
-              <v-img contain height="300" :src="book_details.image_name">
-              </v-img
-            ></v-sheet>
+              <v-img
+                contain
+                height="300"
+                :src="
+                  book_details.image_name
+                    ? book_details.image_name
+                    : '../../public/image-not-available.jpeg'
+                "
+              >
+              </v-img>
+            </v-sheet>
           </v-col>
 
           <v-col cols="4">
@@ -347,25 +355,26 @@ export default {
   },
 
   methods: {
-    async getImage() {
+    async getImage(image_name) {
       try {
-        const getSignedUrl = `https://8643dwkn0a.execute-api.ap-southeast-2.amazonaws.com/dev/book/image?image_name=${this.image_name}`;
+        const getSignedUrl = `https://8643dwkn0a.execute-api.ap-southeast-2.amazonaws.com/dev/book/image?image_name=${image_name}`;
         const res = await axios.get(getSignedUrl);
-        this.image_name = res.data.image_name;
-        console.log(res.data);
-        return this.image_name;
+        return res.data.get_presigned_url;
       } catch (e) {
         console.log(e);
+        return "";
       }
     },
 
     async getBooks() {
       try {
-        const image_name = await this.getImage();
         const url = `https://8643dwkn0a.execute-api.ap-southeast-2.amazonaws.com/dev/book?uuid=${this.bookUUID}`;
         const res = await axios.get(url);
-        this.bookList = res.data;
-        console.log(res.data);
+
+        let image_name = null;
+        if (res.data?.image_name) {
+          image_name = await this.getImage(res.data.image_name);
+        }
 
         this.book_details.title = res.data.title;
         this.book_details.author = res.data.author;
@@ -375,8 +384,6 @@ export default {
         this.book_details.genre = res.data.genre;
         this.book_details.synopsis = res.data.synopsis;
         this.book_details.image_name = image_name;
-
-        console.log(this.book_details);
       } catch (e) {
         console.log(e);
       }
