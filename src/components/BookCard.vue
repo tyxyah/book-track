@@ -1,13 +1,8 @@
 <template>
   <v-dialog v-model="dialog" width="800">
-    <v-card>
+    <v-card color="indigo-lighten-5">
       <v-row>
-        <v-col justify="center">
-          <v-card-title>
-            <span class="text-h5">{{ bookList.title }}</span>
-          </v-card-title>
-        </v-col>
-        <v-col justify="end" align="end">
+        <v-col style="height:40px" justify="end" align="end">
           <router-link
             style="color: black; text-decoration: none"
             to="/home-page"
@@ -23,6 +18,12 @@
             </v-btn>
           </router-link>
         </v-col>
+        <v-container style="height:80px">
+          <v-card-title style="text-align:center">
+            <span style="font-family: hand; font-size: 40px;">{{ bookList.title }}</span>
+          </v-card-title>
+        </v-container>
+       
       </v-row>
 
       <v-card-actions>
@@ -126,7 +127,6 @@ export default {
       dialog2: false,
       //   bookID: "",
       bookList: {},
-      dialog: true,
     };
   },
 
