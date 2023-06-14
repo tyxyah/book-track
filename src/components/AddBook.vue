@@ -1,30 +1,14 @@
 <template>
   <v-row justify="center">
-    <v-card
-      width="940"
-      color="purple-lighten-5"
-      rounded="100"
-      density="compact"
-    >
+    <v-card width="940" color="purple-lighten-5" rounded="100" density="compact">
       <div class="d-flex align-center">
         <v-sheet class="ma-2 pa-2 me-auto" color="purple-lighten-5">
           <v-card-title>Adding a new book</v-card-title>
         </v-sheet>
         <v-sheet class="ma-2 pa-2" color="purple-lighten-5">
-          <router-link
-            style="color: black; text-decoration: none"
-            to="/home-page"
-            replace
-          >
-            <v-btn
-              icon="$close"
-              height="30"
-              width="30"
-              variant="text"
-              type="input"
-              ><v-icon>mdi-close</v-icon>
-            </v-btn></router-link
-          >
+          <router-link style="color: black; text-decoration: none" to="/home-page" replace>
+            <v-btn icon="$close" height="30" width="30" variant="text" type="input"><v-icon>mdi-close</v-icon>
+            </v-btn></router-link>
         </v-sheet>
       </div>
 
@@ -36,19 +20,12 @@
           </v-col>
           <v-col cols="1">
             <v-sheet class="ma-2 pa-2 me-auto" color="purple-lighten-5">
-              :</v-sheet
-            >
+              :</v-sheet>
           </v-col>
           <v-col cols="6">
             <v-sheet class="align-self-center">
-              <v-text-field
-                density="compact"
-                variant="solo"
-                single-line
-                hide-details
-                type="input"
-                v-model="title"
-              ></v-text-field>
+              <v-text-field density="compact" variant="solo" single-line hide-details type="input"
+                v-model="title"></v-text-field>
             </v-sheet>
           </v-col>
         </v-sheet>
@@ -58,24 +35,16 @@
         <v-sheet class="d-flex" color="purple-lighten-5">
           <v-col cols="3">
             <v-sheet class="ma-2 pa-2" color="purple-lighten-5">
-              Author</v-sheet
-            >
+              Author</v-sheet>
           </v-col>
           <v-col cols="1">
             <v-sheet class="ma-2 pa-2 me-auto" color="purple-lighten-5">
-              :</v-sheet
-            >
+              :</v-sheet>
           </v-col>
           <v-col cols="6">
             <v-sheet class="align-self-center">
-              <v-text-field
-                density="compact"
-                variant="solo"
-                single-line
-                hide-details
-                type="input"
-                v-model="author"
-              ></v-text-field>
+              <v-text-field density="compact" variant="solo" single-line hide-details type="input"
+                v-model="author"></v-text-field>
             </v-sheet>
           </v-col>
         </v-sheet>
@@ -84,24 +53,16 @@
         <v-sheet class="d-flex" color="purple-lighten-5">
           <v-col cols="3">
             <v-sheet class="ma-2 pa-2" color="purple-lighten-5">
-              Publication Date</v-sheet
-            >
+              Publication Date</v-sheet>
           </v-col>
           <v-col cols="1">
             <v-sheet class="ma-2 pa-2 me-auto" color="purple-lighten-5">
-              :</v-sheet
-            >
+              :</v-sheet>
           </v-col>
           <v-col cols="6">
             <v-sheet class="align-self-center">
-              <v-text-field
-                density="compact"
-                variant="solo"
-                single-line
-                hide-details
-                type="date"
-                v-model="publication_date"
-              ></v-text-field>
+              <v-text-field density="compact" variant="solo" single-line hide-details type="date"
+                v-model="publication_date"></v-text-field>
             </v-sheet>
           </v-col>
         </v-sheet>
@@ -113,19 +74,12 @@
           </v-col>
           <v-col cols="1">
             <v-sheet class="ma-2 pa-2 me-auto" color="purple-lighten-5">
-              :</v-sheet
-            >
+              :</v-sheet>
           </v-col>
           <v-col cols="6">
             <v-sheet class="align-self-center">
-              <v-text-field
-                variant="solo"
-                density="compact"
-                single-line
-                hide-details
-                type="input"
-                v-model="isbn"
-              ></v-text-field>
+              <v-text-field variant="solo" density="compact" single-line hide-details type="input"
+                v-model="isbn"></v-text-field>
             </v-sheet>
           </v-col>
         </v-sheet>
@@ -137,19 +91,12 @@
           </v-col>
           <v-col cols="1">
             <v-sheet class="ma-2 pa-2 me-auto" color="purple-lighten-5">
-              :</v-sheet
-            >
+              :</v-sheet>
           </v-col>
           <v-col cols="6">
             <v-sheet class="align-self-center">
-              <v-text-field
-                variant="solo"
-                density="compact"
-                single-line
-                hide-details
-                type="input"
-                v-model="uuid"
-              ></v-text-field>
+              <v-text-field variant="solo" density="compact" single-line hide-details type="input"
+                v-model="uuid"></v-text-field>
             </v-sheet>
           </v-col>
         </v-sheet>
@@ -161,20 +108,12 @@
           </v-col>
           <v-col cols="1">
             <v-sheet class="ma-2 pa-2 me-auto" color="purple-lighten-5">
-              :</v-sheet
-            >
+              :</v-sheet>
           </v-col>
           <v-col cols="6">
             <v-sheet class="align-self-center">
-              <v-combobox
-                single-line
-                hide-details
-                variant="solo"
-                v-model="genre"
-                :items="genre_list"
-                density="compact"
-                type="input"
-              ></v-combobox>
+              <v-combobox single-line hide-details variant="solo" v-model="genre" :items="genre_list" density="compact"
+                type="input"></v-combobox>
             </v-sheet>
           </v-col>
         </v-sheet>
@@ -183,51 +122,16 @@
         <v-sheet class="d-flex" color="purple-lighten-5">
           <v-col cols="3">
             <v-sheet class="ma-2 pa-2" color="purple-lighten-5">
-              Status of Availability</v-sheet
-            >
+              Synopsis</v-sheet>
           </v-col>
           <v-col cols="1">
             <v-sheet class="ma-2 pa-2 me-auto" color="purple-lighten-5">
-              :</v-sheet
-            >
+              :</v-sheet>
           </v-col>
           <v-col cols="6">
             <v-sheet class="align-self-center">
-              <v-combobox
-                single-line
-                hide-details
-                variant="solo"
-                v-model="availability"
-                :items="availability_list"
-                density="compact"
-                type="input"
-              ></v-combobox>
-            </v-sheet>
-          </v-col>
-        </v-sheet>
-      </div>
-      <div>
-        <v-sheet class="d-flex" color="purple-lighten-5">
-          <v-col cols="3">
-            <v-sheet class="ma-2 pa-2" color="purple-lighten-5">
-              Synopsis</v-sheet
-            >
-          </v-col>
-          <v-col cols="1">
-            <v-sheet class="ma-2 pa-2 me-auto" color="purple-lighten-5">
-              :</v-sheet
-            >
-          </v-col>
-          <v-col cols="6">
-            <v-sheet class="align-self-center">
-              <v-text-field
-                variant="solo"
-                density="compact"
-                single-line
-                hide-details
-                type="input"
-                v-model="synopsis"
-              ></v-text-field>
+              <v-text-field variant="solo" density="compact" single-line hide-details type="input"
+                v-model="synopsis"></v-text-field>
             </v-sheet>
           </v-col>
         </v-sheet>
@@ -236,34 +140,31 @@
       <div>
         <v-sheet class="d-flex" color="purple-lighten-5">
           <v-col cols="3">
-            <v-sheet class="ma-2 pa-2" color="purple-lighten-5"
-              >Cover Image</v-sheet
-            >
+            <v-sheet class="ma-2 pa-2" color="purple-lighten-5">
+              Cover Image
+            </v-sheet>
           </v-col>
           <v-col cols="1">
-            <v-sheet class="ma-2 pa-2 me-auto" color="purple-lighten-5"
-              >:</v-sheet
-            >
+            <v-sheet class="ma-2 pa-2 me-auto" color="purple-lighten-5">
+              :
+            </v-sheet>
           </v-col>
 
           <v-col cols="3">
             <v-sheet class="ma-2 pa-2" color="purple-lighten-5">
-              <v-img contain height="300" :src="coverImageUrl"></v-img>
+              <v-img contain height="300" :src="
+                image_name
+                  ? image_name
+                  : '../../public/image-not-available.jpeg'
+              ">
+              </v-img>
             </v-sheet>
           </v-col>
 
           <v-col cols="4">
             <v-sheet class="flex-column" color="purple-lighten-5">
               <v-sheet class="ma-2 pa-2" color="purple-lighten-5">
-                <v-btn color="blue-accent-3" type="input" @click="chooseFiles">
-                  Upload Cover Image
-                  <input
-                    id="coverImageFile"
-                    type="file"
-                    accept="image/png, image/jpeg, image/bmp"
-                    style="display: none"
-                  />
-                </v-btn>
+                <input type="file" accept="image/png, image/jpeg, image/jpg" @change="onUploadImage($event)" />
               </v-sheet>
             </v-sheet>
           </v-col>
@@ -279,18 +180,11 @@
         <v-col cols="1">
           <v-sheet class="d-flex justify-end" color="purple-lighten-5">
             <v-sheet class="ma-2 pa-2 d-flex" color="purple-lighten-5">
-              <v-btn color="green" @click="dialog2 = true" type="input"
-                >Add Book
-              </v-btn></v-sheet
-            >
+              <v-btn color="green" @click="dialog2 = true" type="input">Add Book
+              </v-btn></v-sheet>
             <v-sheet class="ma-2 pa-2 d-flex" color="purple-lighten-5">
-              <router-link
-                style="color: blueviolet; text-decoration: none"
-                to="/home-page"
-                replace
-                ><v-btn color="red" type="input">Cancel</v-btn></router-link
-              ></v-sheet
-            >
+              <router-link style="color: blueviolet; text-decoration: none" to="/home-page" replace><v-btn color="red"
+                  type="input">Cancel</v-btn></router-link></v-sheet>
           </v-sheet>
         </v-col>
       </v-sheet>
@@ -302,25 +196,11 @@
             <v-card-actions>
               <v-spacer></v-spacer>
 
-              <router-link
-                style="color: blueviolet; text-decoration: none"
-                to="/home-page"
-                replace
-                ><v-btn
-                  color="blue-darken-1"
-                  variant="text"
-                  @click="addBook"
-                  type="input"
-                >
+              <router-link style="color: blueviolet; text-decoration: none" to="/home-page" replace><v-btn
+                  color="blue-darken-1" variant="text" @click="addBook" type="input">
                   Yes
-                </v-btn></router-link
-              >
-              <v-btn
-                color="primary"
-                variant="text"
-                @click="dialog2 = false"
-                type="input"
-              >
+                </v-btn></router-link>
+              <v-btn color="primary" variant="text" @click="dialog2 = false" type="input">
                 No
               </v-btn>
             </v-card-actions>
@@ -344,58 +224,58 @@ export default {
       uuid: "",
       synopsis: "",
       genre: "",
-      coverImageFile: null,
-      coverImageUrl: "",
-      availability_list: ["Available", "Non-Available"],
-      availability: "Available",
       genre_list: ["Thriller", "Comedian", "Horror", "Romantic"],
-      previewImage: null,
+      uploadedFile: null,
+      image_name: "",
+      dialog2: false,
     };
   },
   methods: {
-    //Get URL
-    async getURL() {
-      const preSignedURL =
-        "https://8643dwkn0a.execute-api.ap-southeast-2.amazonaws.com/dev/book/image";
-      const coverImageUrl = await axios.get(preSignedURL);
-      console.log(coverImageUrl);
-    },
 
-    //Upload image
-    //Assign url to image?
-    async chooseFiles() {
+    async generateUploadPresignedUrl(imageName) {
       try {
-        document.getElementById("coverImageFile").click();
-        const fd = new FormData();
-        fd.append("image", this.coverImageFile, this.coverImageFile.name);
-        //fd.onchange = (event) => {
-        //this.coverImageFile = event.target.files[0];
-        //this.previewImage = URL.createObjectURL(this.coverImageFile);
-      } catch (error) {
-        console.error(error);
+        console.log("starting to generate presigned url");
+
+        const res = await axios.post(
+          `https://8643dwkn0a.execute-api.ap-southeast-2.amazonaws.com/dev/book/image?image_name=${imageName}`
+        );
+        return res.data.upload_presigned_url;
+      } catch (e) {
+        console.log("error generating presigned url", e);
+        return null;
       }
     },
-
-    // onUpload(){
-    //     const fd = new FormData();
-    //     fd.append('image', this.document, this.document.name)
-    //     axios.put('https://8643dwkn0a.execute-api.ap-southeast-2.amazonaws.com/dev/book/image')
-    // },
+    onUploadImage(event) {
+      console.log("on upload image", event.target.files);
+      this.uploadedFile = event.target.files[0];
+      this.image_name = URL.createObjectURL(event.target.files[0]);
+    },
+    async getImage(image_name) {
+      try {
+        const getSignedUrl = `https://8643dwkn0a.execute-api.ap-southeast-2.amazonaws.com/dev/book/image?image_name=${image_name}`;
+        const res = await axios.get(getSignedUrl);
+        return res.data.get_presigned_url;
+      } catch (e) {
+        console.log(e);
+        return "";
+      }
+    },
 
     async addBook() {
       try {
         const url =
           "https://8643dwkn0a.execute-api.ap-southeast-2.amazonaws.com/dev/book";
-        const payload = {
+        let payload = {
           title: this.title,
           author: this.author,
           publication_date: this.publication_date,
           isbn: this.isbn,
           uuid: this.uuid,
           synopsis: this.synopsis,
-          availability: this.availability,
           genre: this.genre,
+          image_name: this.image_name
         };
+
         const res = await axios.post(url, payload);
         console.log(res.data);
       } catch (e) {
@@ -405,3 +285,4 @@ export default {
   },
 };
 </script>
+
