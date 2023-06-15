@@ -1,8 +1,13 @@
 <template>
-  <div>
+  <div >
     <v-sheet height="877" width="auto" class="bg-indigo-lighten-5 pa-16">
       <v-container fill-height fluid>
+        <v-col cols="12">
+            <h1 style="font-family: hand; font-size: 60px;" class="text-center">BookTrack</h1>
+            <h1 style="font-family: sans-serif; font-size: 20px;" class="text-center">"Effortlessly Manage Your Book Collection"</h1>
+          </v-col>
         <v-row justify="space-around">
+         
           <v-img
             class="mt-16 ml-auto"
             max-width="350"
@@ -166,7 +171,9 @@
       </v-container>
     </v-sheet>
   </div>
+  
 </template>
+
 
 <script>
 import axios from "axios";
@@ -220,3 +227,4 @@ export default {
   },
 };
 </script>
+
