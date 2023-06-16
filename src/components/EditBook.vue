@@ -294,15 +294,14 @@
 
             <v-card-actions>
               <v-spacer></v-spacer>
-
-              <v-btn
+              <router-link style="color: blueviolet; text-decoration: none" to="/home-page" replace><v-btn
                 color="blue"
                 variant="text"
                 @click="update_database()"
                 type="input"
               >
                 Yes
-              </v-btn>
+              </v-btn></router-link>
 
               <!-- <router-link
                 style="color: green; text-decoration: none"
