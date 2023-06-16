@@ -213,7 +213,7 @@
 
 <script>
 import axios from "axios";
-
+import { v4 as uuidv4 } from "uuid";
 export default {
   data() {
     return {
@@ -260,11 +260,16 @@ export default {
         return "";
       }
     },
+    renameFile(file, newFileName) {
+      const blob = file.slice(0, file.size, file.type);
 
+      return new File([blob], `${newFileName}.${file.type.split("/").pop()}`, {
+        type: file.type,
+      });
+    },
     async addBook() {
       try {
-        const url =
-          "https://8643dwkn0a.execute-api.ap-southeast-2.amazonaws.com/dev/book";
+        
         let payload = {
           title: this.title,
           author: this.author,
@@ -273,9 +278,26 @@ export default {
           uuid: this.uuid,
           synopsis: this.synopsis,
           genre: this.genre,
-          image_name: this.image_name
         };
+        
+        if (this.uploadedFile !== null) {
+          const image = this.renameFile(this.uploadedFile, uuidv4());
+          const uploadPresignedUrl = await this.generateUploadPresignedUrl(
+            image.name
+          );
 
+          console.log("the image", image, typeof image);
+          console.log("start upload image with the url", uploadPresignedUrl);
+          await axios.put(uploadPresignedUrl, image);
+          console.log("end upload image");
+
+          payload = {
+            ...payload,
+            image_name: image.name,
+          };
+        }
+        const url =
+          "https://8643dwkn0a.execute-api.ap-southeast-2.amazonaws.com/dev/book";
         const res = await axios.post(url, payload);
         console.log(res.data);
       } catch (e) {
