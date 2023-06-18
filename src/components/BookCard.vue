@@ -2,7 +2,7 @@
   <v-dialog v-model="dialog" width="800">
     <v-card color="indigo-lighten-5">
       <v-row>
-        <v-col style="height:40px" justify="end" align="end">
+        <v-col style="height: 40px" justify="end" align="end">
           <router-link
             style="color: black; text-decoration: none"
             to="/home-page"
@@ -18,12 +18,13 @@
             </v-btn>
           </router-link>
         </v-col>
-        <v-container style="height:80px">
-          <v-card-title style="text-align:center">
-            <span style="font-family: hand; font-size: 40px;">{{ bookList.title }}</span>
+        <v-container style="height: 80px">
+          <v-card-title style="text-align: center">
+            <span style="font-family: hand; font-size: 40px">{{
+              bookList.title
+            }}</span>
           </v-card-title>
         </v-container>
-       
       </v-row>
 
       <v-card-actions>
@@ -32,12 +33,7 @@
           <v-row justify="center" align-content="center">
             <!--Card Picture-->
             <v-col cols="7">
-              <v-img
-                contain
-                height="400"
-                src="https://sweetcherrypublishing.com/wp-content/uploads/2019/06/Sherlock-series-1-slipcase.jpg"
-              >
-              </v-img>
+              <v-img contain height="400" :src="bookList.image_url"> </v-img>
             </v-col>
             <!------------------->
 
@@ -126,7 +122,7 @@ export default {
       dialog: true,
       dialog2: false,
       //   bookID: "",
-      bookList: {},
+      bookList: [],
     };
   },
 
@@ -152,8 +148,30 @@ export default {
         const res = await axios.get(url);
         this.bookList = res.data;
         console.log(res.data);
+
+        if (this.bookList.image_name) {
+          console.log(this.bookList.image_name, "image obtained successfully");
+          const image_url = await this.getImage(this.bookList.image_name);
+          console.log(image_url);
+          this.bookList.image_url = image_url; 
+        } else {
+          console.log("No image available for book", this.bookList.title);
+        }
+
       } catch (e) {
         console.log(e);
+      }
+    },
+
+    async getImage(image_name) {
+      try {
+        const getSignedUrl = `https://8643dwkn0a.execute-api.ap-southeast-2.amazonaws.com/dev/book/image?image_name=${image_name}`;
+        const res = await axios.get(getSignedUrl);
+        console.log(res.data, "image url");
+        return res.data.get_presigned_url;
+      } catch (e) {
+        console.log(e);
+        return "";
       }
     },
 
