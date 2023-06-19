@@ -111,7 +111,7 @@
             :src="
               item.image_url
                 ? item.image_url
-                : '/src/assets/no.png'
+                : '/public/image-not-available.jpeg'
             "
           ></v-img>
           <v-container align="center">
