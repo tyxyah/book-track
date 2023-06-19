@@ -93,6 +93,7 @@
                 single-line
                 hide-details
                 v-model="book_details.publication_date"
+                type="date"
               ></v-text-field>
             </v-sheet>
           </v-col>
@@ -116,6 +117,7 @@
                 single-line
                 hide-details
                 v-model="book_details.isbn"
+                placeholder="Example : XXX-X-XX-XXXXXX-X"
               ></v-text-field>
             </v-sheet>
           </v-col>
@@ -139,6 +141,7 @@
                 single-line
                 hide-details
                 v-model="book_details.uuid"
+                disabled="disabled"
               ></v-text-field>
             </v-sheet>
           </v-col>
