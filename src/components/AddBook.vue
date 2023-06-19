@@ -229,7 +229,7 @@
                 :src="
                   image_name
                     ? image_name
-                    : '/src/assets/no.png'
+                    : '/public/image-not-available.jpeg'
                 "
               >
               </v-img>
