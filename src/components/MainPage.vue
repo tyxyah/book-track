@@ -99,13 +99,21 @@
       <v-row
         justify="center"
         align="center"
-        v-for="rowIdx in Math.ceil(bookList.length / 5)"
+        v-for="rowIdx in Math.ceil(bookList.length / 4)"
       >
         <v-col
-          v-for="item in filteredItems.slice(5 * (rowIdx - 1), 5 * rowIdx)"
+          v-for="item in filteredItems.slice(4 * (rowIdx - 1), 4 * rowIdx)"
           :key="item.uuid"
         >
-          <v-img :contain="true" height="200" :src="item.image_url"></v-img>
+          <v-img
+            :contain="true"
+            height="200"
+            :src="
+              item.image_url
+                ? item.image_url
+                : '/src/assets/no.png'
+            "
+          ></v-img>
           <v-container align="center">
             <v-dialog v-model="dialog" width="auto">
               <template v-slot:activator="{ props }">
