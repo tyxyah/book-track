@@ -39,7 +39,7 @@
                 :src="
                   bookList.image_url
                     ? bookList.image_url
-                    : '/public/image-not-available.jpeg'
+                    : '/image-not-available.jpeg'
                 "
               >
               </v-img>
