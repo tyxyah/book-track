@@ -159,7 +159,6 @@ export default {
     this.getBooks();
     this.checkURL();
     this.getImage();
-    setInterval(this.getBooks, 7500);
   },
 
   components: {
