@@ -172,32 +172,6 @@
         <v-sheet class="d-flex" color="purple-lighten-5">
           <v-col cols="3">
             <v-sheet class="ma-2 pa-2" color="purple-lighten-5">
-              Status of Availability</v-sheet
-            >
-          </v-col>
-          <v-col cols="1">
-            <v-sheet class="ma-2 pa-2 me-auto" color="purple-lighten-5">
-              :</v-sheet
-            >
-          </v-col>
-          <v-col cols="6">
-            <v-sheet class="align-self-center">
-              <v-combobox
-                single-line
-                hide-details
-                variant="solo"
-                v-model="value"
-                :items="availability"
-                density="compact"
-              ></v-combobox>
-            </v-sheet>
-          </v-col>
-        </v-sheet>
-      </div>
-      <div>
-        <v-sheet class="d-flex" color="purple-lighten-5">
-          <v-col cols="3">
-            <v-sheet class="ma-2 pa-2" color="purple-lighten-5">
               Synopsis</v-sheet
             >
           </v-col>
@@ -240,7 +214,7 @@
                 :src="
                   book_details.image_name
                     ? book_details.image_name
-                    : '../../public/image-not-available.jpeg'
+                    : '../../src/assets/image-not-available.jpeg'
                 "
               >
               </v-img>
@@ -294,29 +268,19 @@
 
             <v-card-actions>
               <v-spacer></v-spacer>
-              <router-link style="color: blueviolet; text-decoration: none" to="/home-page" replace><v-btn
-                color="blue"
-                variant="text"
-                @click="update_database()"
-                type="input"
-              >
-                Yes
-              </v-btn></router-link>
-
-              <!-- <router-link
-                style="color: green; text-decoration: none"
+              <router-link
+                style="color: blueviolet; text-decoration: none"
                 to="/home-page"
                 replace
-                @click="update_database()"
                 ><v-btn
-                  color="green"
+                  color="blue"
                   variant="text"
-                  @click="dialog2 = false"
+                  @click="update_database()"
                   type="input"
                 >
                   Yes
                 </v-btn></router-link
-              > -->
+              >
               <v-btn
                 color="red"
                 variant="text"
@@ -339,9 +303,28 @@ import { v4 as uuidv4 } from "uuid";
 
 export default {
   data: () => ({
-    availability: ["Available", "Non-Available"],
     value: "Available",
-    genre: ["Thriller", "Comedian", "Horror", "Romantic"],
+    genre: [
+      "Thriller",
+      "Comedy",
+      "Horror",
+      "Romance",
+      "Fantasy",
+      "Mystery",
+      "Young Adult",
+      "Adventure",
+      "Contemporary",
+      "History",
+      "Children's Literature",
+      "Biography",
+      "Poetry",
+      "Literary fiction",
+      "Science Fiction",
+      "Non-Fiction",
+      "Fairy Tale",
+      "Spirituality",
+      "Travel",
+    ],
     value2: "Thriller",
     visible: false,
     dialog: false,
@@ -350,7 +333,6 @@ export default {
     uploadedFile: null,
 
     book_details: {
-      // book: [],
       title: "",
       author: "",
       publication_date: "",
