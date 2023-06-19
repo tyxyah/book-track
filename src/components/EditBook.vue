@@ -217,7 +217,7 @@
                 :src="
                   book_details.image_name
                     ? book_details.image_name
-                    : '../../src/assets/image-not-available.jpeg'
+                    : '/public/image-not-available.jpeg'
                 "
               >
               </v-img>
