@@ -92,7 +92,7 @@
   >
 
   <!------------------>
-
+  
   <v-container justify="center" align="center"
     ><v-card width="100%" color="white">
       <v-container></v-container>
@@ -159,6 +159,7 @@ export default {
     this.getBooks();
     this.checkURL();
     this.getImage();
+    setInterval(this.getBooks, 7500);
   },
 
   components: {
@@ -203,6 +204,7 @@ export default {
           "https://8643dwkn0a.execute-api.ap-southeast-2.amazonaws.com/dev/book/list";
         const res = await axios.get(url);
         this.bookList = res.data.Items;
+        
         console.log(res.data.Items, "book data obtain succeed");
 
         for (const book of this.bookList) {
