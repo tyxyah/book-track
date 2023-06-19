@@ -33,7 +33,16 @@
           <v-row justify="center" align-content="center">
             <!--Card Picture-->
             <v-col cols="7">
-              <v-img contain height="400" :src="bookList.image_url"> </v-img>
+              <v-img
+                contain
+                height="400"
+                :src="
+                  bookList.image_url
+                    ? bookList.image_url
+                    : '/src/assets/no.png'
+                "
+              >
+              </v-img>
             </v-col>
             <!------------------->
 
@@ -45,7 +54,6 @@
               </v-card-text>
               <v-card-text> ISBN: {{ bookList.isbn }} </v-card-text>
               <v-card-text> Genre: {{ bookList.genre }} </v-card-text>
-              <v-card-text> Status of availbility: Available </v-card-text>
               <v-card-text>
                 Synopsis:
                 <div class="text--primary">
@@ -121,7 +129,6 @@ export default {
     return {
       dialog: true,
       dialog2: false,
-      //   bookID: "",
       bookList: [],
     };
   },
@@ -153,11 +160,10 @@ export default {
           console.log(this.bookList.image_name, "image obtained successfully");
           const image_url = await this.getImage(this.bookList.image_name);
           console.log(image_url);
-          this.bookList.image_url = image_url; 
+          this.bookList.image_url = image_url;
         } else {
           console.log("No image available for book", this.bookList.title);
         }
-
       } catch (e) {
         console.log(e);
       }
