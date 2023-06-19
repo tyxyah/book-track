@@ -24,10 +24,6 @@ const routes = [
     component: () => import("@/components/EditBook.vue"),
   },
   {
-    path: "/search-book",
-    component: () => import("@/components/SearchBook.vue"),
-  },
-  {
     path: "/home-page",
     component: () => import("@/components/MainPage.vue"),
   },
